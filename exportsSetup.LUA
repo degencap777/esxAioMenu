@@ -237,3 +237,23 @@ function setVoice()
         voice.level = "Whisper"
       end
 end
+
+============================================
+==       esx_identity/__resource.lua      ==  
+==				    ADD                   == 
+============================================
+
+exports {
+  'openRegistry'
+}
+
+
+
+============================================
+==      esx_identity/client.lua           ==  
+==				    ADD                   == 
+============================================
+
+function openRegistry()
+  TriggerEvent('esx_identity:showRegisterIdentity')
+end
