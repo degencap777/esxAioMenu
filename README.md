@@ -20,7 +20,10 @@ NOTICE:
   * esx_ambulancejob => https://github.com/ESX-Org/esx_ambulancejob
   * esx_mecanojob => https://github.com/ESX-Org/esx_mecanojob
   * es_taxijob => https://github.com/ESX-Org/esx_taxijob
-  * esx_identity => https://github.com/ArkSeyonet/esx_identity_es5 (Not The ESX-Org Version)
+  
+* Special Requirements For ESX Identity
+  * esx_identity => https://github.com/ESX-Org/esx_identity (IF YOU ARE USING ES4)
+  * esx_identity => https://github.com/ArkSeyonet/esx_identity_es5 (Not The ESX-Org Version, Only Use This IF You Are Using ES5)
 
 [INSTALLATION]
 
