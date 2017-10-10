@@ -41,3 +41,5 @@ Credits:
 Licensing:
 `This script uses GNU AGPLv3`
 
+NOTICE:
+`The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
