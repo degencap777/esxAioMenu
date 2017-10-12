@@ -175,18 +175,28 @@ RegisterNUICallback('NUIJobActions', function(data)
       SendNUIMessage({type = 'hideAmbulanceButton'})
       SendNUIMessage({type = 'hideTaxiButton'})
       SendNUIMessage({type = 'hideMechanicButton'})
+	  SendNUIMessage({type = 'hideFireButton'})
   elseif job == 'ambulance' then
       SendNUIMessage({type = 'showAmbulanceButton'})
       SendNUIMessage({type = 'hidePoliceButton'})
       SendNUIMessage({type = 'hideTaxiButton'})
       SendNUIMessage({type = 'hideMechanicButton'})
+	  SendNUIMessage({type = 'hideFireButton'})
   elseif job == 'taxi' then
       SendNUIMessage({type = 'showTaxiButton'})
       SendNUIMessage({type = 'hidePoliceButton'})
       SendNUIMessage({type = 'hideAmbulanceButton'})
       SendNUIMessage({type = 'hideMechanicButton'})
+	  SendNUIMessage({type = 'hideFireButton'})
   elseif job == 'mecano' then
       SendNUIMessage({type = 'showMechanicButton'})
+      SendNUIMessage({type = 'hidePoliceButton'})
+      SendNUIMessage({type = 'hideAmbulanceButton'})
+      SendNUIMessage({type = 'hideTaxiButton'})
+	  SendNUIMessage({type = 'hideFireButton'})
+  elseif job == 'fire' then
+	  SendNUIMessage({type = 'showFireButton'})  
+      SendNUIMessage({type = 'hideMechanicButton'})
       SendNUIMessage({type = 'hidePoliceButton'})
       SendNUIMessage({type = 'hideAmbulanceButton'})
       SendNUIMessage({type = 'hideTaxiButton'})
@@ -195,6 +205,7 @@ RegisterNUICallback('NUIJobActions', function(data)
     SendNUIMessage({type = 'hideAmbulanceButton'})
     SendNUIMessage({type = 'hideTaxiButton'})
     SendNUIMessage({type = 'hideMechanicButton'})
+	SendNUIMessage({type = 'hideFireButton'})
   end
 end)
 
@@ -224,6 +235,13 @@ end)
 --===============================================
 RegisterNUICallback('NUIopenTaxi', function()
 	exports['esx_taxijob']:openTaxi()
+end)
+
+--===============================================
+--== NUIopenFireActions                        ==
+--===============================================
+RegisterNUICallback('NUIopenFire', function()
+	exports['esx_firejob']:openFire()
 end)
 
 --================================================================================================

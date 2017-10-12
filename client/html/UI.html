@@ -12,6 +12,7 @@
 		.police {display: none;}
 		.taxi {display: none;}
 		.mechanic {display: none;}
+		.fire {display: none;}
 		.billing {display: none;}
 		.characters {display: none;}
 		.animations {display: none;}
@@ -112,6 +113,12 @@
 				
 			} else if (event.data.type == "hidePoliceButton"){
 				$('.police').css('display', 'none')
+				
+			} else if (event.data.type == "showFireButton"){
+				$('.fire').css('display', 'block')
+				
+			} else if (event.data.type == "hideFireButton"){
+				$('.fire').css('display', 'none')
 				
 			} else if (event.data.type == "showTaxiButton"){
 				$('.taxi').css('display', 'block')
@@ -323,6 +330,9 @@
 				</div>
 				<div class="mechanic">
 					<button id="mec_gui">Mechanic</button>
+				</div>
+				<div class="fire">
+					<button id="fire_gui">Fire</button>
 				</div>
 				<button id="gen3_gui">Back</button>
 				<button id="exitjob_gui">Exit</button>
@@ -573,6 +583,21 @@
         $('.deleteChar').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenMechanic', JSON.stringify({}));
+	});
+	
+	$("#fire_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.vehicles').css('display', 'none')
+		$('.doors').css('display', 'none')
+		$('.windows').css('display', 'none')
+		$('.characters').css('display', 'none')
+        $('.listChar').css('display', 'none')
+        $('.changeChar').css('display', 'none')
+        $('.deleteChar').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIopenFire', JSON.stringify({}));
 	});
 	
 	$("#taxi_gui").click(function(){
