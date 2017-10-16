@@ -1,9 +1,9 @@
-You need to add the following lines to your files.
-You need to add the following lines to your files.
-You need to add the following lines to your files.
-You need to add the following lines to your files.
-You need to add the following lines to your files.
-You need to add the following lines to your files.
+You need to add the following lines to BOTTOM your files.
+You need to add the following lines to BOTTOM your files.
+You need to add the following lines to BOTTOM your files.
+You need to add the following lines to BOTTOM your files.
+You need to add the following lines to BOTTOM your files.
+You need to add the following lines to BOTTOM your files.
 
 ============================================
 ==    es_extended/client/functions.lua    == 
