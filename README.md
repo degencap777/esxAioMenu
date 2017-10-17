@@ -42,7 +42,7 @@ Credits:
 `Script Created By: ArkSeyonet @Ark`
 
 Licensing:
-`This script uses GNU AGPLv3`
+`You have my permission to use this script as-is. Please do not edit it or post it anywhere else without BOTH @Ark and @onlyserenity's permission.`
 
 NOTICE:
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
