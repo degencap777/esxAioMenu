@@ -2,9 +2,6 @@
 FXServer ESX All-In-One Action Menu
 
 NOTICE:
-`THIS VERSION IS ONLY COMPATIBLE WITH ESSENTIALMODE5`
-
-NOTICE:
 `If you edit this script, I will not provide support. I will only provide support for this script in it's unedited state.`
 
 
