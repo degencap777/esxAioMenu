@@ -1,4 +1,4 @@
-version '3.0'
+version '1.0.0'
 
 client_script('client/client.lua') --your NUI Lua File
 server_script "@mysql-async/lib/MySQL.lua"
