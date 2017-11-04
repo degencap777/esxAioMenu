@@ -2,7 +2,7 @@
 FXServer ESX All-In-One Action Menu
 
 NOTICE:
-`If you edit this script, I will not provide support. I will only provide support for this script in it's unedited state.`
+`There will no longer be support for this script. OnlySerenity and I have both stepped away from FiveM and ESX, so consider this project discontinued.`
 
 
 [REQUIREMENTS]
