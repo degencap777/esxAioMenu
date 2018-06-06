@@ -39,7 +39,7 @@ Credits:
 `Script Created By: ArkSeyonet @Ark`
 
 Licensing:
-`You have my permission to use this script as-is. Please do not edit it or post it anywhere else without BOTH @Ark and @onlyserenity's permission. If you have a previous release of this script that contains the license, then you may use that version in any way that you please, but please do not use code from this version to update that version.`
+`You have my permission to use this script as-is. The ONLY people allowed to edit this script currently are @ArkSeyonet, @onlyserenity, and @Hawaii_Beach on the ESX discord. If you have a previous release of this script that contains the license, then you may use that version in any way that you please, but please do not use code from this version to update that version.`
 
 NOTICE:
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
