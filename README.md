@@ -1,8 +1,7 @@
 # fxserver-esx_aiomenu
 FXServer ESX All-In-One Action Menu
 
-NOTICE:
-`There will no longer be support for this script. OnlySerenity and I have both stepped away from FiveM and ESX, so consider this project discontinued. Hawaii_Beach AND the main members of the ESX team from the ESX Discord have been given my permission to work on this script, if they so choose. I only wanted to contribute to ESX, and if they think that they can improve ESX with this script, then I will happily allow that as long as I still retain credit for being the original creator.`
+UPDATE 12/12/2018 - I am going to begin working on this script again and I will post here with updates to it. I plan on finishing what I started, and I am sure that everyone would like to have it as well.
 
 
 [REQUIREMENTS]
@@ -39,7 +38,7 @@ Credits:
 `Script Created By: ArkSeyonet @Ark`
 
 Licensing:
-`You have my permission to use this script as-is. The ONLY people allowed to edit this script currently are @ArkSeyonet, @onlyserenity, and @Hawaii_Beach on the ESX discord. If you have a previous release of this script that contains the license, then you may use that version in any way that you please, but please do not use code from this version to update that version.`
+`CC BY-NC-ND 3.0`
 
 NOTICE:
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
