@@ -1,5 +1,4 @@
 # esx_aiomenu
-FXServer ESX All-In-One Action Menu
 
 ## Requirements
 * Dependencies For Full Functionality
