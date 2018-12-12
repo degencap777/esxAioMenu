@@ -30,7 +30,7 @@ start esx_aiomenu
 ```
 
 ## License
-`Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License`
+* [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
