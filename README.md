@@ -1,11 +1,7 @@
-# fxserver-esx_aiomenu
+# esx_aiomenu
 FXServer ESX All-In-One Action Menu
 
-UPDATE 12/12/2018 - I am going to begin working on this script again and I will post here with updates to it. I plan on finishing what I started, and I am sure that everyone would like to have it as well.
-
-
-[REQUIREMENTS]
-
+## Requirements
 * Dependencies For Full Functionality
   * [es_extended](https://github.com/ESX-Org/es_extended)
   * [esx_phone](https://github.com/ESX-Org/esx_phone)
@@ -20,7 +16,7 @@ UPDATE 12/12/2018 - I am going to begin working on this script again and I will 
 * Special Requirements For ESX Identity
   * [esx_identity](https://github.com/ESX-Org/esx_identity)
 
-[INSTALLATION]
+## Installation
 
 1) Install To resources/[esx]/esx_aiomenu
 `<< MUST BE INSTALLED HERE`
@@ -33,10 +29,7 @@ UPDATE 12/12/2018 - I am going to begin working on this script again and I will 
 start esx_aiomenu
 ```
 
-Credits:
-`Script Created By: ArkSeyonet @Ark`
-
-License:
+## License
 `Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License`
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
@@ -45,5 +38,7 @@ NonCommercial — You may not use the material for commercial purposes.
 
 NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
 
-NOTICE:
+## Notes
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
+
+12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
