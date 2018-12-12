@@ -7,7 +7,7 @@ UPDATE 12/12/2018 - I am going to begin working on this script again and I will 
 [REQUIREMENTS]
 
 * Dependencies For Full Functionality
-  * es_extended => https://github.com/ESX-Org/es_extended
+  * [es_extended](https://github.com/ESX-Org/es_extended)
   * esx_phone => https://github.com/ESX-Org/esx_phone
   * esx_billing => https://github.com/ESX-Org/esx_billing
   * esx_voice => https://github.com/ESX-Org/esx_voice
