@@ -1,0 +1,2 @@
+EngineStartWhenEnteringVehicle = true
+FRFuelSupport = false
