@@ -4,7 +4,15 @@ local lastCar = nil
 local myIdentity = {}
 local myIdentifiers = {}
 
+ESX                           = nil
+
 Citizen.CreateThread(function()
+
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+	
 	while true do
 		Wait(0)
 
@@ -51,7 +59,13 @@ end)
 function doToggleEngine()
     local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
     if vehicle ~= nil and vehicle ~= 0 and GetPedInVehicleSeat(vehicle, 0) then
-        SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
+        if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
+			SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
+			ESX.ShowNotification('Engine Off')
+		else
+			SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
+			ESX.ShowNotification('Engine On')
+		end
     end
 end
 
