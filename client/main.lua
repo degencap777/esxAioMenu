@@ -45,45 +45,15 @@ RegisterNUICallback('togglephone', function(data)
 end)
 
 RegisterNUICallback('toggleEngineOnOff', function()
-	if FRFuelSupport == true then
-		if IsPedInAnyVehicle(GetPlayerPed(-1), false) then 
-			local fuel = 0
-			local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-			if (GetPedInVehicleSeat(GetVehiclePedIsIn(GetPlayerPed(-1), false), -1) == GetPlayerPed(-1)) then	
-				if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
-					SetVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false), false)
-					fuel = frfuel:getCurrentFuelLevel()
-					frfuel:setFuel(0)
-					TriggerEvent("chatMessage", "Info", {255, 255, 0}, "Engine is now ^1off^0.")
-				else
-					SetVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false), true)
-					frfuel:setFuel(fuel)
-					TriggerEvent("chatMessage", "Info", {255, 255, 0}, "Engine is now ^2on^0.")
-					SetVehiclePetrolTankHealth(vehicle, 1000) 
-				end		
-			else 
-				ShowNotification("You have to be in the driver's seat of a vehicle!")
-			end
-		end
-	else
-		if IsPedInAnyVehicle(GetPlayerPed(-1), false) then 
-			local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-			if (GetPedInVehicleSeat(GetVehiclePedIsIn(GetPlayerPed(-1), false), -1) == GetPlayerPed(-1)) then	
-				if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
-					SetVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false), false)
-					SetVehiclePetrolTankHealth(vehicle, 0) 
-					TriggerEvent("chatMessage", "Info", {255, 255, 0}, "Engine is now ^1off^0.")
-				else
-					SetVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false), true)
-					TriggerEvent("chatMessage", "Info", {255, 255, 0}, "Engine is now ^2on^0.")
-					SetVehiclePetrolTankHealth(vehicle, 1000) 
-				end		
-			else 
-				ShowNotification("You have to be in the driver's seat of a vehicle!")
-			end 	
-		end
-	end 
+	doToggleEngine()
 end)
+
+function doToggleEngine()
+    local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+    if vehicle ~= nil and vehicle ~= 0 and GetPedInVehicleSeat(vehicle, 0) then
+        SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
+    end
+end
 
 RegisterNUICallback('toggleVehicleLocks', function()
 	car = GetVehiclePedIsIn(GetPlayerPed(-1), false)
