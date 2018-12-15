@@ -61,10 +61,10 @@ function doToggleEngine()
     if vehicle ~= nil and vehicle ~= 0 and GetPedInVehicleSeat(vehicle, 0) then
         if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
 			SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
-			ESX.ShowNotification('Engine Off')
+			ESX.ShowNotification('Your engine is now off.')
 		else
 			SetVehicleEngineOn(vehicle, (not GetIsVehicleEngineRunning(vehicle)), false, true)
-			ESX.ShowNotification('Engine On')
+			ESX.ShowNotification('Your engine is now on.')
 		end
     end
 end
@@ -207,10 +207,15 @@ RegisterNUICallback('toggleFrontLeftDoor', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 0) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 0, false)            
+		local frontLeftDoor = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'door_dside_f')
+		if frontLeftDoor ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 0) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 0, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 0, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 0, false)             
+			ESX.ShowNotification('This vehicle does not have a front driver-side door.')
 		end
 	end
 end)
@@ -219,10 +224,15 @@ RegisterNUICallback('toggleFrontRightDoor', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 1) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 1, false)            
+		local frontRightDoor = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'door_pside_f')
+		if frontRightDoor ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 1) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 1, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 1, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 1, false)             
+			ESX.ShowNotification('This vehicle does not have a front passenger-side door.')
 		end
 	end
 end)
@@ -231,10 +241,15 @@ RegisterNUICallback('toggleBackLeftDoor', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 2) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 2, false)            
+		local backLeftDoor = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'door_dside_r')
+		if backLeftDoor ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 2) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 2, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 2, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 2, false)             
+			ESX.ShowNotification('This vehicle does not have a back driver-side door.')
 		end
 	end
 end)
@@ -243,10 +258,15 @@ RegisterNUICallback('toggleBackRightDoor', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 3) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 3, false)            
+		local backRightDoor = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'door_pside_r')
+		if backRightDoor ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 3) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 3, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 3, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 3, false)             
+			ESX.ShowNotification('This vehicle does not have a back passenger-side door.')
 		end
 	end
 end)
@@ -255,10 +275,15 @@ RegisterNUICallback('toggleHood', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 4) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 4, false)            
+		local hood = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'bonnet')
+		if hood ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 4) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 4, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 4, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 4, false)             
+			ESX.ShowNotification('This vehicle does not have a hood.')
 		end
 	end
 end)
@@ -267,10 +292,15 @@ RegisterNUICallback('toggleTrunk', function()
 	local playerPed = GetPlayerPed(-1)
 	local playerVeh = GetVehiclePedIsIn(playerPed, false)
 	if ( IsPedSittingInAnyVehicle( playerPed ) ) then
-		if GetVehicleDoorAngleRatio(playerVeh, 5) > 0.0 then 
-			SetVehicleDoorShut(playerVeh, 5, false)            
+		local trunk = GetEntityBoneIndexByName(GetVehiclePedIsIn(GetPlayerPed(-1), false), 'boot')
+		if trunk ~= -1 then
+			if GetVehicleDoorAngleRatio(playerVeh, 5) > 0.0 then 
+				SetVehicleDoorShut(playerVeh, 5, false)            
+			else
+				SetVehicleDoorOpen(playerVeh, 5, false)             
+			end
 		else
-			SetVehicleDoorOpen(playerVeh, 5, false)             
+			ESX.ShowNotification('This vehicle does not have a trunk.')
 		end
 	end
 end)
