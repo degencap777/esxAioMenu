@@ -7,24 +7,14 @@
 		.general {display: none;}
 		.esx {display: none;}
 		.jobs {display: none;}
-		.vehicles {display: none;}
-		.ambulance {display: none;}
-		.police {display: none;}
-		.taxi {display: none;}
-		.mechanic {display: none;}
-		.fire {display: none;}
-		.billing {display: none;}
-		.characters {display: none;}
-		.animations {display: none;}
-		.phone {display: none;}
-		.inventory {display: none;}
-		.vehicle {display: none;}
-		.doors {display: none;}
-		.windows {display: none;}
-        .listChar {display: none;}
-        .changeChar {display: none;}
-        .deleteChar {display: none;}
-  
+		.vehicleControls {display: none;}
+		.character {display: none;}
+		.deleteCharacter {display: none;}
+		.doorControls {display: none;}
+		.individualDoorControls {display:none;}
+		.windowControls {display: none;}
+		.individualWindowControls {display: none;}
+		.interactions {display: none;}
 		</style>
 		
 	<script>
@@ -35,72 +25,147 @@
 				$('.general').css('display', 'block')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
                 
 				
 			} else if (event.data.type == "openESX"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'block')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openJobs"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'block')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
-			} else if (event.data.type == "openVehicles"){
+			} else if (event.data.type == "openVehicleControls"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'block')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'block')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
-			} else if (event.data.type == "openDoorActions"){
+			} else if (event.data.type == "openDoorControls"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'block')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'block')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
-			} else if (event.data.type == "openCharacters"){
+			} else if (event.data.type == "openIndividualDoorControls"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'none')
-				$('.characters').css('display', 'block')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'block')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
-			} else if (event.data.type == "openWindows"){
+			} else if (event.data.type == "openCharacter"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.doors').css('display', 'none')
-				$('.windows').css('display', 'block')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'block')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
+				
+			} else if (event.data.type == "openWindowControls"){
+				$('.general').css('display', 'none')
+				$('.esx').css('display', 'none')
+				$('.jobs').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'block')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
+				
+			} else if (event.data.type == "openInteractions"){
+				$('.general').css('display', 'none')
+				$('.esx').css('display', 'none')
+				$('.jobs').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'block')
+				
+			} else if (event.data.type == "openIndividualWindowControls"){
+				$('.general').css('display', 'none')
+				$('.esx').css('display', 'none')
+				$('.jobs').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'block')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "closeAll"){
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
-				$('.vehicles').css('display', 'none')
-				$('.characters').css('display', 'none')
+				$('.character').css('display', 'none')
+				$('.vehicleControls').css('display', 'none')
+				$('.doorControls').css('display', 'none')
+				$('.individualDoorControls').css('display', 'none')
+				$('.windowControls').css('display', 'none')
+				$('.individualWindowControls').css('display', 'none')
+				$('.lightControls').css('display', 'none')
+				$('.individualLightControls').css('display', 'none')
+				$('.deleteCharacter').css('display', 'none')
+				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "showAmbulanceButton"){
 				$('.ambulance').css('display', 'block')
@@ -162,103 +227,15 @@
 			} else if (event.data.type == "hideAnimationsButton"){
 				$('.animations').css('display', 'none')
 				
-			} else if (event.data.type == "listCharacters"){
-                $('.listChar').css('display', 'block')
-				$('.list').show()
-				var listbtn = document.getElementById("listcharacter1");
-				document.getElementById("listcharacter1").style.background = "DarkRed";
-				var listt = document.createTextNode(event.data.char1);
-				listbtn.className = "list";
-				listbtn.appendChild(listt);
-				document.body.appendChild(listbtn);
-				
-				var listbtn2 = document.getElementById("listcharacter2");
-				document.getElementById("listcharacter2").style.background = "DarkRed";
-				var listt2 = document.createTextNode(event.data.char2);
-				listbtn2.className = "list";
-				listbtn2.appendChild(listt2);
-				document.body.appendChild(listbtn2);
-				
-				var listbtn3 = document.getElementById("listcharacter3");
-				document.getElementById("listcharacter3").style.background = "DarkRed";
-				var listt3 = document.createTextNode(event.data.char3);
-				listbtn3.className = "list";
-				listbtn3.appendChild(listt3);
-				document.body.appendChild(listbtn3);
-				
-				var listbtn4 = document.getElementById("listCharBackBtn");
-				var listt4 = document.createTextNode(event.data.backBtn);
-				listbtn4.className = "list";
-				listbtn4.appendChild(listt4);
-				document.body.appendChild(listbtn4);
-                
-				var listbtn5 = document.getElementById("listCharExitBtn");
-				var listt5 = document.createTextNode(event.data.exitBtn);
-				listbtn5.className = "list";
-				listbtn5.appendChild(listt5);
-				document.body.appendChild(listbtn5);
-                
-                
-			} else if (event.data.type == "changeCharacters"){
-                $('.changeChar').css('display', 'block')
-				$('.change').show()
-				var changebtn = document.getElementById("changecharacter1");
-				document.getElementById("changecharacter1").style.background = "DarkRed";
-				var changet = document.createTextNode(event.data.char1);
-				changebtn.className = "change";
-				changebtn.appendChild(changet);
-				document.body.appendChild(changebtn);
-				
-				var changebtn2 = document.getElementById("changecharacter2");
-				document.getElementById("changecharacter2").style.background = "DarkRed";
-				var changet2 = document.createTextNode(event.data.char2);
-				changebtn2.className = "change";
-				changebtn2.appendChild(changet2);
-				document.body.appendChild(changebtn2);
-				
-				var changebtn3 = document.getElementById("changecharacter3");
-				document.getElementById("changecharacter3").style.background = "DarkRed";
-				var changet3 = document.createTextNode(event.data.char3);
-				changebtn3.className = "change";
-				changebtn3.appendChild(changet3);
-				document.body.appendChild(changebtn3);
-				
-				var changebtn4 = document.getElementById("changeCharBackBtn");
-				var changet4 = document.createTextNode(event.data.backBtn);
-				changebtn4.className = "change";
-				changebtn4.appendChild(changet4);
-				document.body.appendChild(changebtn4);
-                
-				var changebtn5 = document.getElementById("changeCharExitBtn");
-				var changet5 = document.createTextNode(event.data.exitBtn);
-				changebtn5.className = "change";
-				changebtn5.appendChild(changet5);
-				document.body.appendChild(changebtn5);
-                
-                
-			} else if (event.data.type == "deleteCharacters"){
+			} else if (event.data.type == "deleteCharacter"){
                 $('.deleteChar').css('display', 'block')
 				$('.delete').show()
-				var deletebtn = document.getElementById("deletecharacter1");
-				document.getElementById("deletecharacter1").style.background = "DarkRed";
+				var deletebtn = document.getElementById("deletecharacter");
+				document.getElementById("deletecharacter").style.background = "DarkRed";
 				var deletet = document.createTextNode(event.data.char1);
 				deletebtn.className = "delete";
 				deletebtn.appendChild(deletet);
 				document.body.appendChild(deletebtn);
-				
-				var deletebtn2 = document.getElementById("deletecharacter2");
-				document.getElementById("deletecharacter2").style.background = "DarkRed";
-				var deletet2 = document.createTextNode(event.data.char2);
-				deletebtn2.className = "delete";
-				deletebtn2.appendChild(deletet2);
-				document.body.appendChild(deletebtn2);
-				
-				var deletebtn3 = document.getElementById("deletecharacter3");
-				document.getElementById("deletecharacter3").style.background = "DarkRed";
-				var deletet3 = document.createTextNode(event.data.char3);
-				deletebtn3.className = "delete";
-				deletebtn3.appendChild(deletet3);
-				document.body.appendChild(deletebtn3);
 				
 				var deletebtn4 = document.getElementById("deleteCharBackBtn");
 				var deletet4 = document.createTextNode(event.data.backBtn);
@@ -282,19 +259,34 @@
 
     <body>
 		<div class="general">
-			<div class="main">			
+			<div class="main">
+				<button id="int_gui">Interactions</button>		
+				<button id="veh_gui">Vehicle</button>
+				<button id="char_gui">Character</button>	
+				<button id="esx_gui">ESX</button>
+				<button id="job_gui">Jobs</button>
+				<button id="exit_gui">Exit</button>
+			</div>
+		</div>
+
+		<div class="interactions">
+			<div class="main">
 				<button class="phone_num">Give Phone Number</button>
 				<button class="show_id">Show ID</button>
-				<button class="lock">Toggle Vehicle Locks</button>	
-				<div class="vehicle">
-					<button id="veh_gui">Vehicle Actions</button>
-				</div>
-				<button id="char_gui">Character Actions</button>	
-				<button id="esx_gui">ESX Actions</button>
-				<button id="job_gui">Job Actions</button>
-				<button id="exitgen_gui">Exit</button>
+				<button id="gen_gui">Back</button>
+				<button id="exit2_gui">Exit</button>
 			</div>
+		</div>
 
+		<div class="vehicleControls">
+			<div class="main">
+				<button class="lock">Toggle Vehicle Locks</button>	
+				<button class="toggle_engine">Toggle Engine</button>
+				<button id="window_gui">Window Controls</button>
+				<button id="door_gui">Door Controls</button>
+				<button id="gen2_gui">Back</button>
+				<button id="exit3_gui">Exit</button>
+			</div>
 		</div>
 		
 		<div class="esx">
@@ -312,10 +304,11 @@
 					<button id="anim_gui">Animations</button>
 				</div>
 				<button class="voice">Voice Range</button>
-				<button id="gen2_gui">Back</button>
-				<button id="exitesx_gui">Exit</button>
+				<button id="gen3_gui">Back</button>
+				<button id="exit4_gui">Exit</button>
 			</div>
 		</div>
+
 		
 		<div class="jobs">
 			<div class="main">
@@ -334,79 +327,74 @@
 				<div class="fire">
 					<button id="fire_gui">Fire</button>
 				</div>
-				<button id="gen3_gui">Back</button>
-				<button id="exitjob_gui">Exit</button>
-			</div>
-		</div>
-		
-		<div class="vehicles">
-			<div class="main">
-				<button class="toggle_engine">Toggle Engine</button>
-				<button id="window_gui">-Window Controls-</button>
-				<button id="door_gui">-Door Controls-</button>
 				<button id="gen4_gui">Back</button>
-				<button id="exitveh_gui">Exit</button>
+				<button id="exit5_gui">Exit</button>
 			</div>
 		</div>
 		
-		<div class="doors">
+		<div class="doorControls">
+			<div class="main">
+				<button id="inddoor_gui">Individual Door Controls</button>
+				<button class="toggle_all">Toggle All</button>
+				<button id="gen5_gui">Back</button>
+				<button id="exit6_gui">Exit</button>
+			</div>
+		</div>
+
+		<div class="individualDoorControls">
 			<div class="main">
 				<button class="toggle_hood">Toggle Hood</button>
 				<button class="toggle_trunk">Toggle Trunk</button>
 				<button class="toggle_fldoor">Toggle Front Left Door</button>
 				<button class="toggle_frdoor">Toggle Front Right Door</button>
-				<button class="toggle_rldoor">Toggle Back Left Door</button>
-				<button class="toggle_rrdoor">Toggle Back Right Door</button>
-				<button id="veh2_gui">Back</button>
-				<button id="exitveh2_gui">Exit</button>
+				<button class="toggle_rldoor">Toggle Rear Left Door</button>
+				<button class="toggle_rrdoor">Toggle Rear Right Door</button>
+				<button id="door2_gui">Back</button>
+				<button id="exit7_gui">Exit</button>
 			</div>
 		</div>
 		
-		<div class="windows">
+		<div class="windowControls">
 			<div class="main">
+				<button id="indwind_gui">Individual Window Controls</button>
 				<button class="toggle_windowsup">Windows Up</button>
 				<button class="toggle_windowsdown">Windows Down</button>
-				<button id="veh3_gui">Back</button>
-				<button id="exitveh3_gui">Exit</button>
+				<button id="gen6_gui">Back</button>
+				<button id="exit8_gui">Exit</button>
+			</div>
+		</div>
+
+		<div class="individualWindowControls">
+			<div class="main">
+				<button class="toggle_flwindowup">Front Left Window Up</button>
+				<button class="toggle_flwindowdown">Front Left Window Down</button>
+				<button class="toggle_frwindowup">Front Right Window Up</button>
+				<button class="toggle_frwindowdown">Front Right Window Down</button>
+				<button class="toggle_rlwindowup">Rear Left Window Up</button>
+				<button class="toggle_rlwindowdown">Rear Left Window Down</button>
+				<button class="toggle_rrwindowup">Rear Right Window Up</button>
+				<button class="toggle_rrwindowdown">Rear Right Window Down</button>
+				<button class="toggle_fmwindowup">Front Middle Window Up</button>
+				<button class="toggle_fmwindowdown">Front Middle Window Down</button>
+				<button class="toggle_rmwindowup">Rear Middle Window Up</button>
+				<button class="toggle_rmwindowdown">Rear Middle Window Down</button>
+				<button id="window2_gui">Back</button>
+				<button id="exit9_gui">Exit</button>
 			</div>
 		</div>
 		
-		<div class="characters">
+		<div class="character">
 			<div class="main">
-				<button class="list_char">List Characters</button>
-				<button class="change_char">Change Character</button>
 				<button class="delete_char">Delete Character</button>
 				<button id="new_gui">New Character</button>
-				<button id="gen5_gui">Back</button>
-				<button id="exitchar_gui">Exit</button>
+				<button id="gen7_gui">Back</button>
+				<button id="exit10_gui">Exit</button>
 			</div>
 		</div>
-        
-        <div class="listChar">
-            <div class="main">
-            <button id="listcharacter1"></button>
-            <button id="listcharacter2"></button>
-            <button id="listcharacter3"></button>               
-            <button id="listCharBackBtn"></button>
-            <button id="listCharExitBtn"></button>
-            </div>
-        </div>
 		
-        <div class="changeChar">
+        <div class="deleteCharacter">
             <div class="main">
-            <button id="changecharacter1" class="schar1"></button>
-            <button id="changecharacter2" class="schar2"></button>
-            <button id="changecharacter3" class="schar3"></button>               
-            <button id="changeCharBackBtn"></button>
-            <button id="changeCharExitBtn"></button>
-            </div>
-        </div>
-		
-        <div class="deleteChar">
-            <div class="main">
-            <button id="deletecharacter1" class="dchar1"></button>
-            <button id="deletecharacter2" class="dchar2"></button>
-            <button id="deletecharacter3" class="dchar3"></button>               
+            <button id="deletecharacter" class="dchar"></button>           
             <button id="deleteCharBackBtn"></button>
             <button id="deleteCharExitBtn"></button>
             </div>
@@ -419,93 +407,13 @@
   
 	
 	<script type="text/javascript">	
-
-    document.getElementById("listcharacter1").onmouseover = function() 
+	
+    document.getElementById("deletecharacter").onmouseover = function() 
     {
       this.style.backgroundColor = "Red";
     }
 	
-    document.getElementById("listcharacter2").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("listcharacter3").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("changecharacter1").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("changecharacter2").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("changecharacter3").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("deletecharacter1").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("deletecharacter2").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("deletecharacter3").onmouseover = function() 
-    {
-      this.style.backgroundColor = "Red";
-    }
-	
-    document.getElementById("listcharacter1").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("listcharacter2").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("listcharacter3").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("changecharacter1").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("changecharacter2").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("changecharacter3").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("deletecharacter1").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("deletecharacter2").onmouseout = function() 
-    {
-      this.style.backgroundColor = "DarkRed";
-    }
-	
-    document.getElementById("deletecharacter3").onmouseout = function() 
+    document.getElementById("deletecharacter").onmouseout = function() 
     {
       this.style.backgroundColor = "DarkRed";
     }
@@ -524,18 +432,35 @@
 		$.post('http://esx_aiomenu/togglephone', JSON.stringify({}));
 		
 	});
+
+	$("#int_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowInteractions', JSON.stringify({}));
+	});
 	
 	$("#inv_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenInventory', JSON.stringify({}));
 	});
@@ -544,13 +469,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenAmbulance', JSON.stringify({}));
 	});
@@ -559,13 +485,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenPolice', JSON.stringify({}));
 	});
@@ -574,13 +501,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenMechanic', JSON.stringify({}));
 	});
@@ -589,13 +517,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenFire', JSON.stringify({}));
 	});
@@ -604,13 +533,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenTaxi', JSON.stringify({}));
 	});
@@ -619,13 +549,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenPhone', JSON.stringify({}));
 	});
@@ -634,13 +565,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenInvoices', JSON.stringify({}));
 	});
@@ -649,13 +581,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIopenAnimations', JSON.stringify({}));
 	});
@@ -664,13 +597,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIESXActions', JSON.stringify({}));
 		
@@ -680,79 +614,135 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUIJobActions', JSON.stringify({}));
 		
 	});
 	
+	$("#gen_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
+		
+	});
+
 	$("#gen2_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIGenActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
 		
 	});
-	
+
 	$("#gen3_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIGenActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
 		
 	});
-	
+
 	$("#gen4_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIGenActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
 		
 	});
-	
+
 	$("#gen5_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIGenActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
+		
+	});
+
+	$("#gen6_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
+		
+	});
+
+	$("#gen7_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowGeneral', JSON.stringify({}));
 		
 	});
 	
@@ -760,63 +750,67 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIVehicleActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowVehicleControls', JSON.stringify({}));
 		
 	});
-	
-	$("#veh2_gui").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIVehicleActions', JSON.stringify({}));
-		
-	});
-	
-	$("#veh3_gui").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIVehicleActions', JSON.stringify({}));
-		
-	});
-	
+
 	$("#door_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIDoorActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowDoorControls', JSON.stringify({}));
+		
+	});
+
+	$("#door2_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowDoorControls', JSON.stringify({}));
+		
+	});
+
+	$("#inddoor_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowIndividualDoorControls', JSON.stringify({}));
 		
 	});
 	
@@ -824,15 +818,50 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUIWindowActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowWindowControls', JSON.stringify({}));
+		
+	});
+
+	$("#window2_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowWindowControls', JSON.stringify({}));
+		
+	});
+
+	$("#indwind_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowIndividiualWindowControls', JSON.stringify({}));
 		
 	});
 	
@@ -840,15 +869,16 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		$.post('http://esx_aiomenu/NUICharActions', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIShowCharacterControls', JSON.stringify({}));
 		
 	});
 	
@@ -856,70 +886,165 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 		$.post('http://esx_aiomenu/NUInewCharacter', JSON.stringify({}));
 	});
 	
-	$("#exitesx_gui").click(function(){
+	$("#exit_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 	});
-	
-	$("#exitgen_gui").click(function(){
+
+	$("#exit2_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 	});
-	
-	$("#exitchar_gui").click(function(){
+
+	$("#exit3_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));       
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 	});
-	
-	$("#exitjob_gui").click(function(){
+
+	$("#exit4_gui").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit5_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit6_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit7_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit8_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit9_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+	});
+
+	$("#exit10_gui").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 	});
 	
@@ -927,41 +1052,14 @@
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-	});
-	
-	$("#exitveh2_gui").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-	});
-	
-	$("#exitveh3_gui").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
 		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 	});
 	
@@ -973,46 +1071,19 @@
 		$.post('http://esx_aiomenu/toggleVehicleLocks', JSON.stringify({}));
 	});
 	
-	$(".list_char").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIlistCharacters', JSON.stringify({}));
-	});
-	
-	$(".change_char").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIchangeCharacters', JSON.stringify({}));
-	});
-	
 	$(".delete_char").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-		$.post('http://esx_aiomenu/NUIdeleteCharacters', JSON.stringify({}));
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIdeleteCharacter', JSON.stringify({}));
 	});
 	
 	$(".toggle_fldoor").click(function(){
@@ -1046,100 +1117,71 @@
 	$(".toggle_windowsdown").click(function(){
 		$.post('http://esx_aiomenu/toggleWindowsDown', JSON.stringify({}));
 	});
-        
-	$("#listCharExitBtn").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var listbtn = document.getElementById("listcharacter1");
-		if (listbtn.hasChildNodes()) {
-			listbtn.removeChild(listbtn.childNodes[0]);
-		}
-		var listbtn2 = document.getElementById("listcharacter2");
-		if (listbtn2.hasChildNodes()) {
-			listbtn2.removeChild(listbtn2.childNodes[0]);
-		}
-		var listbtn3 = document.getElementById("listcharacter3");
-		if (listbtn3.hasChildNodes()) {
-			listbtn3.removeChild(listbtn3.childNodes[0]);
-		}
-		var listbtn4 = document.getElementById("listCharBackBtn");
-		if (listbtn4.hasChildNodes()) {
-			listbtn4.removeChild(listbtn4.childNodes[0]);
-		}
-		var listbtn5 = document.getElementById("listCharExitBtn");
-		if (listbtn5.hasChildNodes()) {
-			listbtn5.removeChild(listbtn5.childNodes[0]);
-		}
-		$('.list').hide()
+
+	$(".toggle_flwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontLeftWindowUp', JSON.stringify({}));
 	});
-	
-	$("#changeCharExitBtn").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var changebtn = document.getElementById("changecharacter1");
-		if (changebtn.hasChildNodes()) {
-			changebtn.removeChild(changebtn.childNodes[0]);
-		}
-		var changebtn2 = document.getElementById("changecharacter2");
-		if (changebtn2.hasChildNodes()) {
-			changebtn2.removeChild(changebtn2.childNodes[0]);
-		}
-		var changebtn3 = document.getElementById("changecharacter3");
-		if (changebtn3.hasChildNodes()) {
-			changebtn3.removeChild(changebtn3.childNodes[0]);
-		}
-		var changebtn4 = document.getElementById("changeCharBackBtn");
-		if (changebtn4.hasChildNodes()) {
-			changebtn4.removeChild(changebtn4.childNodes[0]);
-		}
-		var changebtn5 = document.getElementById("changeCharExitBtn");
-		if (changebtn5.hasChildNodes()) {
-			changebtn5.removeChild(changebtn5.childNodes[0]);
-		}
-		$('.change').hide()
+
+	$(".toggle_flwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontLeftWindowDown', JSON.stringify({}));
+	});
+
+	$(".toggle_frwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontRightWindowUp', JSON.stringify({}));
+	});
+
+	$(".toggle_frwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontRightWindowDown', JSON.stringify({}));
+	});
+
+	$(".toggle_rlwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleRearLeftWindowUp', JSON.stringify({}));
+	});
+
+	$(".toggle_rlwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleRearLeftWindowDown', JSON.stringify({}));
+	});
+
+	$(".toggle_rrwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleRearRightWindowUp', JSON.stringify({}));
+	});
+
+	$(".toggle_rrwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleRearRightWindowDown', JSON.stringify({}));
+	});
+
+	$(".toggle_fmwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontMiddleWindowUp', JSON.stringify({}));
+	});
+
+	$(".toggle_fmwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleFrontMiddleWindowDown', JSON.stringify({}));
+	});
+
+	$(".toggle_rmwindowup").click(function(){
+		$.post('http://esx_aiomenu/toggleRearMiddleWindowUp', JSON.stringify({}));
+	});
+
+	$(".toggle_rmwindowdown").click(function(){
+		$.post('http://esx_aiomenu/toggleRearMiddleWindowDown', JSON.stringify({}));
 	});
 	
 	$("#deleteCharExitBtn").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
         $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var deletebtn = document.getElementById("deletecharacter1");
+		var deletebtn = document.getElementById("deletecharacter");
 		if (deletebtn.hasChildNodes()) {
 			deletebtn.removeChild(deletebtn.childNodes[0]);
-		}
-		var deletebtn2 = document.getElementById("deletecharacter2");
-		if (deletebtn2.hasChildNodes()) {
-			deletebtn2.removeChild(deletebtn2.childNodes[0]);
-		}
-		var deletebtn3 = document.getElementById("deletecharacter3");
-		if (deletebtn3.hasChildNodes()) {
-			deletebtn3.removeChild(deletebtn3.childNodes[0]);
 		}
 		var deletebtn4 = document.getElementById("deleteCharBackBtn");
 		if (deletebtn4.hasChildNodes()) {
@@ -1150,103 +1192,24 @@
 			deletebtn5.removeChild(deletebtn5.childNodes[0]);
 		}
 		$('.delete').hide()
-	});
-	
-	$("#listCharBackBtn").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var listbtn = document.getElementById("listcharacter1");
-		if (listbtn.hasChildNodes()) {
-			listbtn.removeChild(listbtn.childNodes[0]);
-		}
-		var listbtn2 = document.getElementById("listcharacter2");
-		if (listbtn2.hasChildNodes()) {
-			listbtn2.removeChild(listbtn2.childNodes[0]);
-		}
-		var listbtn3 = document.getElementById("listcharacter3");
-		if (listbtn3.hasChildNodes()) {
-			listbtn3.removeChild(listbtn3.childNodes[0]);
-		}
-		var listbtn4 = document.getElementById("listCharBackBtn");
-		if (listbtn4.hasChildNodes()) {
-			listbtn4.removeChild(listbtn4.childNodes[0]);
-		}
-		var listbtn5 = document.getElementById("listCharExitBtn");
-		if (listbtn5.hasChildNodes()) {
-			listbtn5.removeChild(listbtn5.childNodes[0]);
-		}
-		$('.list').hide()
-        $.post('http://esx_aiomenu/NUICharActions', JSON.stringify({}));
-	});
-	
-	$("#changeCharBackBtn").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var changebtn = document.getElementById("changecharacter1");
-		if (changebtn.hasChildNodes()) {
-			changebtn.removeChild(changebtn.childNodes[0]);
-		}
-		var changebtn2 = document.getElementById("changecharacter2");
-		if (changebtn2.hasChildNodes()) {
-			changebtn2.removeChild(changebtn2.childNodes[0]);
-		}
-		var changebtn3 = document.getElementById("changecharacter3");
-		if (changebtn3.hasChildNodes()) {
-			changebtn3.removeChild(changebtn3.childNodes[0]);
-		}
-		var changebtn4 = document.getElementById("changeCharBackBtn");
-		if (changebtn4.hasChildNodes()) {
-			changebtn4.removeChild(changebtn4.childNodes[0]);
-		}
-		var changebtn5 = document.getElementById("changeCharExitBtn");
-		if (changebtn5.hasChildNodes()) {
-			changebtn5.removeChild(changebtn5.childNodes[0]);
-		}
-		$('.change').hide()
-        $.post('http://esx_aiomenu/NUICharActions', JSON.stringify({}));
 	});
 	
 	$("#deleteCharBackBtn").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
         $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var deletebtn = document.getElementById("deletecharacter1");
+		var deletebtn = document.getElementById("deletecharacter");
 		if (deletebtn.hasChildNodes()) {
 			deletebtn.removeChild(deletebtn.childNodes[0]);
-		}
-		var deletebtn2 = document.getElementById("deletecharacter2");
-		if (deletebtn2.hasChildNodes()) {
-			deletebtn2.removeChild(deletebtn2.childNodes[0]);
-		}
-		var deletebtn3 = document.getElementById("deletecharacter3");
-		if (deletebtn3.hasChildNodes()) {
-			deletebtn3.removeChild(deletebtn3.childNodes[0]);
 		}
 		var deletebtn4 = document.getElementById("deleteCharBackBtn");
 		if (deletebtn4.hasChildNodes()) {
@@ -1257,32 +1220,25 @@
 			deletebtn5.removeChild(deletebtn5.childNodes[0]);
 		}
 		$('.delete').hide()
-        $.post('http://esx_aiomenu/NUICharActions', JSON.stringify({}));
+        $.post('http://esx_aiomenu/NUIShowCharacterControls', JSON.stringify({}));
 	});
 	
-	$(".dchar1").click(function(){
+	$(".dchar").click(function(){
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
         $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var deletebtn = document.getElementById("deletecharacter1");
+		var deletebtn = document.getElementById("deletecharacter");
 		if (deletebtn.hasChildNodes()) {
 			deletebtn.removeChild(deletebtn.childNodes[0]);
-		}
-		var deletebtn2 = document.getElementById("deletecharacter2");
-		if (deletebtn2.hasChildNodes()) {
-			deletebtn2.removeChild(deletebtn2.childNodes[0]);
-		}
-		var deletebtn3 = document.getElementById("deletecharacter3");
-		if (deletebtn3.hasChildNodes()) {
-			deletebtn3.removeChild(deletebtn3.childNodes[0]);
 		}
 		var deletebtn4 = document.getElementById("deleteCharBackBtn");
 		if (deletebtn4.hasChildNodes()) {
@@ -1293,187 +1249,7 @@
 			deletebtn5.removeChild(deletebtn5.childNodes[0]);
 		}
 		$('.delete').hide()
-        $.post('http://esx_aiomenu/NUIDelChar1', JSON.stringify({}));
-	});
-	
-	$(".dchar2").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var deletebtn = document.getElementById("deletecharacter1");
-		if (deletebtn.hasChildNodes()) {
-			deletebtn.removeChild(deletebtn.childNodes[0]);
-		}
-		var deletebtn2 = document.getElementById("deletecharacter2");
-		if (deletebtn2.hasChildNodes()) {
-			deletebtn2.removeChild(deletebtn2.childNodes[0]);
-		}
-		var deletebtn3 = document.getElementById("deletecharacter3");
-		if (deletebtn3.hasChildNodes()) {
-			deletebtn3.removeChild(deletebtn3.childNodes[0]);
-		}
-		var deletebtn4 = document.getElementById("deleteCharBackBtn");
-		if (deletebtn4.hasChildNodes()) {
-			deletebtn4.removeChild(deletebtn4.childNodes[0]);
-		}
-		var deletebtn5 = document.getElementById("deleteCharExitBtn");
-		if (deletebtn5.hasChildNodes()) {
-			deletebtn5.removeChild(deletebtn5.childNodes[0]);
-		}
-		$('.delete').hide()
-        $.post('http://esx_aiomenu/NUIDelChar2', JSON.stringify({}));
-	});
-	
-	$(".dchar3").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var deletebtn = document.getElementById("deletecharacter1");
-		if (deletebtn.hasChildNodes()) {
-			deletebtn.removeChild(deletebtn.childNodes[0]);
-		}
-		var deletebtn2 = document.getElementById("deletecharacter2");
-		if (deletebtn2.hasChildNodes()) {
-			deletebtn2.removeChild(deletebtn2.childNodes[0]);
-		}
-		var deletebtn3 = document.getElementById("deletecharacter3");
-		if (deletebtn3.hasChildNodes()) {
-			deletebtn3.removeChild(deletebtn3.childNodes[0]);
-		}
-		var deletebtn4 = document.getElementById("deleteCharBackBtn");
-		if (deletebtn4.hasChildNodes()) {
-			deletebtn4.removeChild(deletebtn4.childNodes[0]);
-		}
-		var deletebtn5 = document.getElementById("deleteCharExitBtn");
-		if (deletebtn5.hasChildNodes()) {
-			deletebtn5.removeChild(deletebtn5.childNodes[0]);
-		}
-		$('.delete').hide()
-        $.post('http://esx_aiomenu/NUIDelChar3', JSON.stringify({}));
-	});
-	
-	$(".schar1").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var changebtn = document.getElementById("changecharacter1");
-		if (changebtn.hasChildNodes()) {
-			changebtn.removeChild(changebtn.childNodes[0]);
-		}
-		var changebtn2 = document.getElementById("changecharacter2");
-		if (changebtn2.hasChildNodes()) {
-			changebtn2.removeChild(changebtn2.childNodes[0]);
-		}
-		var changebtn3 = document.getElementById("changecharacter3");
-		if (changebtn3.hasChildNodes()) {
-			changebtn3.removeChild(changebtn3.childNodes[0]);
-		}
-		var changebtn4 = document.getElementById("changeCharBackBtn");
-		if (changebtn4.hasChildNodes()) {
-			changebtn4.removeChild(changebtn4.childNodes[0]);
-		}
-		var changebtn5 = document.getElementById("changeCharExitBtn");
-		if (changebtn5.hasChildNodes()) {
-			changebtn5.removeChild(changebtn5.childNodes[0]);
-		}
-		$('.change').hide()
-        $.post('http://esx_aiomenu/NUISelChar1', JSON.stringify({}));
-	});
-	
-	$(".schar2").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var changebtn = document.getElementById("changecharacter1");
-		if (changebtn.hasChildNodes()) {
-			changebtn.removeChild(changebtn.childNodes[0]);
-		}
-		var changebtn2 = document.getElementById("changecharacter2");
-		if (changebtn2.hasChildNodes()) {
-			changebtn2.removeChild(changebtn2.childNodes[0]);
-		}
-		var changebtn3 = document.getElementById("changecharacter3");
-		if (changebtn3.hasChildNodes()) {
-			changebtn3.removeChild(changebtn3.childNodes[0]);
-		}
-		var changebtn4 = document.getElementById("changeCharBackBtn");
-		if (changebtn4.hasChildNodes()) {
-			changebtn4.removeChild(changebtn4.childNodes[0]);
-		}
-		var changebtn5 = document.getElementById("changeCharExitBtn");
-		if (changebtn5.hasChildNodes()) {
-			changebtn5.removeChild(changebtn5.childNodes[0]);
-		}
-		$('.change').hide()
-        $.post('http://esx_aiomenu/NUISelChar2', JSON.stringify({}));
-	});
-	
-	$(".schar3").click(function(){
-		$('.general').css('display', 'none')
-		$('.esx').css('display', 'none')
-		$('.jobs').css('display', 'none')
-		$('.vehicles').css('display', 'none')
-		$('.doors').css('display', 'none')
-		$('.windows').css('display', 'none')
-		$('.characters').css('display', 'none')
-        $('.listChar').css('display', 'none')
-        $('.changeChar').css('display', 'none')
-        $('.deleteChar').css('display', 'none')
-        $.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-		var changebtn = document.getElementById("changecharacter1");
-		if (changebtn.hasChildNodes()) {
-			changebtn.removeChild(changebtn.childNodes[0]);
-		}
-		var changebtn2 = document.getElementById("changecharacter2");
-		if (changebtn2.hasChildNodes()) {
-			changebtn2.removeChild(changebtn2.childNodes[0]);
-		}
-		var changebtn3 = document.getElementById("changecharacter3");
-		if (changebtn3.hasChildNodes()) {
-			changebtn3.removeChild(changebtn3.childNodes[0]);
-		}
-		var changebtn4 = document.getElementById("changeCharBackBtn");
-		if (changebtn4.hasChildNodes()) {
-			changebtn4.removeChild(changebtn4.childNodes[0]);
-		}
-		var changebtn5 = document.getElementById("changeCharExitBtn");
-		if (changebtn5.hasChildNodes()) {
-			changebtn5.removeChild(changebtn5.childNodes[0]);
-		}
-		$('.change').hide()
-        $.post('http://esx_aiomenu/NUISelChar3', JSON.stringify({}));
+        $.post('http://esx_aiomenu/NUIDelChar', JSON.stringify({}));
 	});
 	
 	document.onkeyup = function (data) {
@@ -1481,64 +1257,17 @@
 			$('.general').css('display', 'none')
 			$('.esx').css('display', 'none')
 			$('.jobs').css('display', 'none')
-			$('.vehicles').css('display', 'none')
-			$('.doors').css('display', 'none')
-			$('.windows').css('display', 'none')
-			$('.characters').css('display', 'none')
-			$('.listChar').css('display', 'none')
-			$('.changeChar').css('display', 'none')
-			$('.deleteChar').css('display', 'none')
-			var listbtn = document.getElementById("listcharacter1");
-			if (listbtn.hasChildNodes()) {
-				listbtn.removeChild(listbtn.childNodes[0]);
-			}
-			var listbtn2 = document.getElementById("listcharacter2");
-			if (listbtn2.hasChildNodes()) {
-				listbtn2.removeChild(listbtn2.childNodes[0]);
-			}
-			var listbtn3 = document.getElementById("listcharacter3");
-			if (listbtn3.hasChildNodes()) {
-				listbtn3.removeChild(listbtn3.childNodes[0]);
-			}
-			var listbtn4 = document.getElementById("listCharBackBtn");
-			if (listbtn4.hasChildNodes()) {
-				listbtn4.removeChild(listbtn4.childNodes[0]);
-			}
-			var listbtn5 = document.getElementById("listCharExitBtn");
-			if (listbtn5.hasChildNodes()) {
-				listbtn5.removeChild(listbtn5.childNodes[0]);
-			}
-			var changebtn = document.getElementById("changecharacter1");
-			if (changebtn.hasChildNodes()) {
-				changebtn.removeChild(changebtn.childNodes[0]);
-			}
-			var changebtn2 = document.getElementById("changecharacter2");
-			if (changebtn2.hasChildNodes()) {
-				changebtn2.removeChild(changebtn2.childNodes[0]);
-			}
-			var changebtn3 = document.getElementById("changecharacter3");
-			if (changebtn3.hasChildNodes()) {
-				changebtn3.removeChild(changebtn3.childNodes[0]);
-			}
-			var changebtn4 = document.getElementById("changeCharBackBtn");
-			if (changebtn4.hasChildNodes()) {
-				changebtn4.removeChild(changebtn4.childNodes[0]);
-			}
-			var changebtn5 = document.getElementById("changeCharExitBtn");
-			if (changebtn5.hasChildNodes()) {
-				changebtn5.removeChild(changebtn5.childNodes[0]);
-			}
-			var deletebtn = document.getElementById("deletecharacter1");
+			$('.character').css('display', 'none')
+			$('.vehicleControls').css('display', 'none')
+			$('.doorControls').css('display', 'none')
+			$('.individualDoorControls').css('display', 'none')
+			$('.windowControls').css('display', 'none')
+			$('.individualWindowControls').css('display', 'none')
+			$('.deleteCharacter').css('display', 'none')
+			$('.interactions').css('display', 'none')
+			var deletebtn = document.getElementById("deletecharacter");
 			if (deletebtn.hasChildNodes()) {
 				deletebtn.removeChild(deletebtn.childNodes[0]);
-			}
-			var deletebtn2 = document.getElementById("deletecharacter2");
-			if (deletebtn2.hasChildNodes()) {
-				deletebtn2.removeChild(deletebtn2.childNodes[0]);
-			}
-			var deletebtn3 = document.getElementById("deletecharacter3");
-			if (deletebtn3.hasChildNodes()) {
-				deletebtn3.removeChild(deletebtn3.childNodes[0]);
 			}
 			var deletebtn4 = document.getElementById("deleteCharBackBtn");
 			if (deletebtn4.hasChildNodes()) {
@@ -1549,8 +1278,6 @@
 				deletebtn5.removeChild(deletebtn5.childNodes[0]);
 			}
 			$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
-			$('.list').hide()
-			$('.change').hide()
 			$('.delete').hide()
 		}
 	};
