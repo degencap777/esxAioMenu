@@ -111,7 +111,7 @@ RegisterNUICallback('NUIopenInventory', function()
 end)
 
 RegisterNUICallback('NUIopenPhone', function()
-	exports['esx_phone']:openPhone()
+	exports['esx_phone']:openESXPhone()
 end)
 
 RegisterNUICallback('NUIopenInvoices', function()
