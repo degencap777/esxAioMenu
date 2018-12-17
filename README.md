@@ -1,6 +1,6 @@
 # esx_aiomenu
 
-## Requirements
+## REQUIREMENTS
 * Dependencies For Full Functionality
   * [es_extended](https://github.com/ESX-Org/es_extended)
   * [esx_phone](https://github.com/ESX-Org/esx_phone)
@@ -15,7 +15,7 @@
 
 The updated version of ESX Identity on my github is REQUIRED for the updated AIOMenu.
 
-## Installation
+## INSTALLATION
 
 1) Install To resources/[esx]/esx_aiomenu
 `<< MUST BE INSTALLED HERE`
@@ -28,22 +28,22 @@ The updated version of ESX Identity on my github is REQUIRED for the updated AIO
 start esx_aiomenu
 ```
 
-## Notes
+## NOTES
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
 
 12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
 
-##Licensing
+## LICENSING
 
 There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
 
 If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
 
-##Credits
-Coder 1: ArkSeyonet
-Coder 2: onlyserenity
-   QA 1: Nom Chompski
-   QA 1: Vacant
+## CREDITS
+* Coder 1: ArkSeyonet
+* Coder 2: onlyserenity
+* QA 1: Nom Chompski
+* QA 2: Vacant
 
 ## FEATURES
 [Completed]
