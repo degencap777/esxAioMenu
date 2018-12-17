@@ -49,6 +49,7 @@ If you have any sources for esx_aiomenu that date before this update was release
 * Give Phone Number (Proximity)
 * Open ESX Menus through UI Buttons and not keyboard keys.
 * Character Creation/Deletion via UI Buttons and not commands.
+
 [WIP]
 * Integration With All Jobs
 * Conversion to ESX UI
