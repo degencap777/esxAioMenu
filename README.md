@@ -41,7 +41,8 @@ If you have any sources for esx_aiomenu that date before this update was release
 
 ## CREDITS
 * Coder 1: ArkSeyonet
-* Coder 2: onlyserenity
+* Coder 2: onlyserenity (No longer part of project)
+* Coder 3: Vacant
 * QA 1: Nom Chompski
 * QA 2: Vacant
 
