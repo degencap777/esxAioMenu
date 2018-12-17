@@ -35,8 +35,6 @@ start esx_aiomenu
 
 ##Licensing
 
-There is no license, therefore this code is copyrighted by default, and no one can use, modify, or distribute this updated script on their servers without permission.
+There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
 
-If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script.
-If you wish to use the updated version of this script, please contact me on Discord @ Ark Seyonet#7814
-For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
+If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
