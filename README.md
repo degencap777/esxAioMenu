@@ -28,16 +28,15 @@
 start esx_aiomenu
 ```
 
-## License
-* [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-
-NonCommercial — You may not use the material for commercial purposes.
-
-NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
-
 ## Notes
 `The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
 
 12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
+
+##Licensing
+
+There is no license, therefore this code is copyrighted by default, and no one can use, modify, or distribute this updated script on their servers without permission.
+
+If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script.
+If you wish to use the updated version of this script, please contact me on Discord @ Ark Seyonet#7814
+For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn

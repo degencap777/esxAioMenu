@@ -335,7 +335,7 @@
 		<div class="doorControls">
 			<div class="main">
 				<button id="inddoor_gui">Individual Door Controls</button>
-				<button class="toggle_all">Toggle All</button>
+				<button class="toggle_allOpenables">Toggle All</button>
 				<button id="gen5_gui">Back</button>
 				<button id="exit6_gui">Exit</button>
 			</div>
@@ -1095,15 +1095,19 @@
 	});
 	
 	$(".toggle_rldoor").click(function(){
-		$.post('http://esx_aiomenu/toggleBackLeftDoor', JSON.stringify({}));
+		$.post('http://esx_aiomenu/toggleRearLeftDoor', JSON.stringify({}));
 	});
 	
 	$(".toggle_rrdoor").click(function(){
-		$.post('http://esx_aiomenu/toggleBackRightDoor', JSON.stringify({}));
+		$.post('http://esx_aiomenu/toggleRearRightDoor', JSON.stringify({}));
 	});
 	
 	$(".toggle_hood").click(function(){
 		$.post('http://esx_aiomenu/toggleHood', JSON.stringify({}));
+	});
+	
+	$(".toggle_allOpenables").click(function(){
+		$.post('http://esx_aiomenu/toggleAllOpenables', JSON.stringify({}));
 	});
 	
 	$(".toggle_trunk").click(function(){
