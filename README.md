@@ -39,6 +39,12 @@ There is no license, therefore this code is copyrighted by default, and no one c
 
 If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
 
+##Credits
+Coder 1: ArkSeyonet
+Coder 2: onlyserenity
+   QA 1: Nom Chompski
+   QA 1: Vacant
+
 ## FEATURES
 [Completed]
 * Locking/Unlocking Vehicles While In-Vehicle and Remotely (provided you don't use the button again while in a different vehicle)
