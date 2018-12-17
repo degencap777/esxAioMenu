@@ -40,11 +40,14 @@ There is no license, therefore this code is copyrighted by default, and no one c
 If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
 
 ## CREDITS
-* Coder 1: ArkSeyonet
-* Coder 2: onlyserenity (No longer part of project)
-* Coder 3: Vacant
+* Lead Coder: ArkSeyonet
+* Coder 1: Vacant
+* Coder 2: Vacant
 * QA 1: Nom Chompski
-* QA 2: Vacant
+* QA 2: Circles
+* QA 3: Vacant
+
+* Special thanks to onlyserenity who played a major part in the development of this script, although he is no longer a part of the project.
 
 ## FEATURES
 [Completed]
