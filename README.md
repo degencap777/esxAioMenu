@@ -38,3 +38,19 @@ start esx_aiomenu
 There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
 
 If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
+
+## FEATURES
+[Completed]
+* Locking/Unlocking Vehicles While In-Vehicle and Remotely (provided you don't use the button again while in a different vehicle)
+* Toggling Engine On/Off
+* Open/Close All Doors/Hood/Trunk, and Individual Controls
+* Roll All Windows Down/Up, and Individual Controls
+* Show ID (Proximity)
+* Give Phone Number (Proximity)
+* Open ESX Menus through UI Buttons and not keyboard keys.
+* Character Creation/Deletion via UI Buttons and not commands.
+[WIP]
+* Integration With All Jobs
+* Conversion to ESX UI
+* Vehicle Locks Only For Owned Vehicles
+* Keys For Vehicles
