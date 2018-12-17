@@ -11,9 +11,9 @@
   * [esx_ambulancejob](https://github.com/ESX-Org/esx_ambulancejob)
   * [esx_mecanojob](https://github.com/ESX-Org/esx_mecanojob)
   * [es_taxijob](https://github.com/ESX-Org/esx_taxijob)
-  
-* Special Requirements For ESX Identity
-  * [esx_identity](https://github.com/ESX-Org/esx_identity)
+  * [esx_identity](https://github.com/ArkSeyonet/esx_identity)
+
+The updated version of ESX Identity on my github is REQUIRED for the updated AIOMenu.
 
 ## Installation
 
