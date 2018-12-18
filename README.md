@@ -33,12 +33,6 @@ start esx_aiomenu
 
 12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
 
-## LICENSING
-
-There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
-
-If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
-
 ## CREDITS
 * Lead Coder: ArkSeyonet
 * Coder 1: Vacant
@@ -65,3 +59,12 @@ If you have any sources for esx_aiomenu that date before this update was release
 * Conversion to ESX UI
 * Vehicle Locks Only For Owned Vehicles
 * Keys For Vehicles
+
+
+## LICENSING
+
+There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
+
+If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
+
+Copyright 2017-2018, David Miles, All rights reserved.
