@@ -52,6 +52,8 @@ start esx_aiomenu
 
 The ESX Identity on MY Github is REQUIRED for ESX AIOMenu to work properly.
 
+If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
+
 ## Credits
 * Lead Coder: ArkSeyonet
 * Coder 1: Vacant
@@ -64,8 +66,12 @@ The ESX Identity on MY Github is REQUIRED for ESX AIOMenu to work properly.
 
 ## Licensing
 
-There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License
 
-If you have any sources for esx_aiomenu that date before this update was released, then you may use them following the licenses of the old script. For help with ESX AIOMenu or the new version of ESX Identity, please join the discord via this link: https://discord.gg/3ECcWxn
+* Attribution — You must give appropriate credit. If supplied, you must provide the name of the creator and attribution parties, a copyright notice, a license notice, a disclaimer notice, and a link to the material. CC licenses prior to Version 4.0 also require you to provide the title of the material if supplied, and may have other slight differences.
+
+* NonCommercial — You may not use the material for commercial purposes. A commercial use is one primarily intended for commercial advantage or monetary compensation.
+
+* NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material. Merely changing the format never creates a derivative.
 
 Copyright 2017-2018, David Miles, All rights reserved.
