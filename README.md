@@ -1,6 +1,6 @@
 # esx_aiomenu
 
-## REQUIREMENTS
+## Requirements
 * Dependencies For Full Functionality
   * [es_extended](https://github.com/ESX-Org/es_extended)
   * [esx_phone](https://github.com/ESX-Org/esx_phone)
@@ -15,7 +15,7 @@
 
 The updated version of ESX Identity on my github is REQUIRED for the updated AIOMenu.
 
-## INSTALLATION
+## Installation
 
 1) Install To resources/[esx]/esx_aiomenu
 `<< MUST BE INSTALLED HERE`
@@ -28,22 +28,7 @@ The updated version of ESX Identity on my github is REQUIRED for the updated AIO
 start esx_aiomenu
 ```
 
-## NOTES
-`The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
-
-12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
-
-## CREDITS
-* Lead Coder: ArkSeyonet
-* Coder 1: Vacant
-* Coder 2: Vacant
-* QA 1: Nom Chompski
-* QA 2: Circles
-* QA 3: Vacant
-
-* Special thanks to onlyserenity who played a major part in the development of this script, although he is no longer a part of the project.
-
-## FEATURES
+## Features
 [Completed]
 * Locking/Unlocking Vehicles While In-Vehicle and Remotely (provided you don't use the button again while in a different vehicle)
 * Toggling Engine On/Off
@@ -60,8 +45,24 @@ start esx_aiomenu
 * Vehicle Locks Only For Owned Vehicles
 * Keys For Vehicles
 
+## Notes
+`The Default Button For Opening The Menu Is 'Page Up' and 'Esc' closes the menu`
 
-## LICENSING
+12/12/2018: I am starting to work on this script again, as I want to finish what I started. I will post more updates in the future, and once it's finished I will open the license fully to the public.
+
+The ESX Identity on MY Github is REQUIRED for ESX AIOMenu to work properly.
+
+## Credits
+* Lead Coder: ArkSeyonet
+* Coder 1: Vacant
+* Coder 2: Vacant
+* QA 1: Nom Chompski
+* QA 2: Circles
+* QA 3: Vacant
+
+* Special thanks to onlyserenity who played a major part in the development of this script, although he is no longer a part of the project.
+
+## Licensing
 
 There is no license, therefore this code is copyrighted by default, and no one can modify or distribute this updated script on their servers without permission. You may use this script as-is, but DO NOT post it anywhere yourself, please give them the link to this repo.
 
