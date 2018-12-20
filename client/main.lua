@@ -90,11 +90,13 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			if lockStatus == 0 or lockStatus == 1 then
 				SetVehicleDoorsLocked(vehicle, 2)
 				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock', 1.0)
 				ESX.ShowNotification('Your doors are now locked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 			elseif lockStatus == 2 then
 				SetVehicleDoorsLocked(vehicle, 1)
 				SetVehicleDoorsLockedForAllPlayers(vehicle, false)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
 				ESX.ShowNotification('Your doors are now unlocked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 			end
@@ -105,10 +107,14 @@ RegisterNUICallback('toggleVehicleLocks', function()
 		if lockStatusOutside == 0 or lockStatusOutside == 1 then
 			SetVehicleDoorsLocked(lastCar, 2)
 			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock', 1.0)
 			ESX.ShowNotification('Your doors are now locked.')
+			Wait(500)
+			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock2', 1.0)		
 		elseif lockStatusOutside == 2 then
 			SetVehicleDoorsLocked(lastCar, 1)
 			SetVehicleDoorsLockedForAllPlayers(vehicle, false)
+			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
 			ESX.ShowNotification('Your doors are now unlocked.')
 		else
 			ESX.ShowNotification('There is no vehicle to lock/unlock.')
@@ -138,8 +144,8 @@ RegisterNUICallback('NUIopenPhone', function()
 	exports['esx_phone']:openESXPhone()
 end)
 
-RegisterNUICallback('NUIopenInvoices', function()
-	exports['esx_billing']:openInvoices()
+RegisterNUICallback('NUIopenBilling', function()
+	exports['esx_billing']:openBilling()
 end)
 
 RegisterNUICallback('NUIsetVoice', function()
@@ -662,4 +668,36 @@ end)
 RegisterNetEvent('noIdentity')
 AddEventHandler('noIdentity', function()
 	ESX.ShowNotification('You do not have an identity.')
+end)
+
+RegisterNetEvent('InteractSound_CL:PlayOnOne')
+AddEventHandler('InteractSound_CL:PlayOnOne', function(soundFile, soundVolume)
+    SendNUIMessage({
+        transactionType     = 'playSound',
+        transactionFile     = soundFile,
+        transactionVolume   = soundVolume
+    })
+end)
+
+RegisterNetEvent('InteractSound_CL:PlayOnAll')
+AddEventHandler('InteractSound_CL:PlayOnAll', function(soundFile, soundVolume)
+    SendNUIMessage({
+        transactionType     = 'playSound',
+        transactionFile     = soundFile,
+        transactionVolume   = soundVolume
+    })
+end)
+
+RegisterNetEvent('InteractSound_CL:PlayWithinDistance')
+AddEventHandler('InteractSound_CL:PlayWithinDistance', function(playerNetId, maxDistance, soundFile, soundVolume)
+    local lCoords = GetEntityCoords(GetPlayerPed(-1))
+    local eCoords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(playerNetId)))
+    local distIs  = Vdist(lCoords.x, lCoords.y, lCoords.z, eCoords.x, eCoords.y, eCoords.z)
+    if(distIs <= maxDistance) then
+        SendNUIMessage({
+            transactionType     = 'playSound',
+            transactionFile     = soundFile,
+            transactionVolume   = soundVolume
+        })
+    end
 end)
