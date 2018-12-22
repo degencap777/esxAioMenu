@@ -1,2 +1,1 @@
-EngineStartWhenEnteringVehicle = true
-FRFuelSupport = false
+
