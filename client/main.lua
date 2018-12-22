@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
 				SetVehicleDoorsLocked(veh, 0)
 				SetPedCanBeDraggedOut(ped2, true)
 			else
-				if GetVehicleClass(veh) ~= 18 and GetVehicleClass(veh) ~= 19 then
+				if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
 					local ped2 = GetPedInVehicleSeat(veh, -1)
 					if ped2 ~= 0 then	
 						if lock ~= 4 then
