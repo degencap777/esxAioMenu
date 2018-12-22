@@ -36,6 +36,7 @@ Citizen.CreateThread(function()
 		if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then
 			
 			local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))
+			local lock = GetVehicleDoorLockStatus(vehicle)
 			local job = tostring(exports['esx_policejob']:getJob())
 			if job == "police" or job == "ambulance" then
 				SetVehicleDoorsLocked(veh, 0)
@@ -44,13 +45,13 @@ Citizen.CreateThread(function()
 				if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
 					local ped2 = GetPedInVehicleSeat(veh, -1)
 					if ped2 ~= 0 then	
-						if lock ~= 4 then
+							SetVehicleDoorsLocked(veh, 4)
+							SetPedCanBeDraggedOut(ped2, false)
+					else
+						if lock ~= 0 then
 							SetVehicleDoorsLocked(veh, 4)
 							SetPedCanBeDraggedOut(ped2, false)
 						end
-					else
-						SetVehicleDoorsLocked(veh, 4)
-						SetPedCanBeDraggedOut(ped2, false)
 					end
 				end
 			end
