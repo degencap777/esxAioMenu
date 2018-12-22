@@ -32,6 +32,28 @@ Citizen.CreateThread(function()
 			SetNuiFocus(false, false)
 			SendNUIMessage({type = 'close'})
 		end
+		
+		if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then
+			local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))
+			local job = tostring(exports['esx_policejob']:getJob())
+			if job == "police" or job == "ambulance" then
+				SetVehicleDoorsLocked(veh, 0)
+				SetPedCanBeDraggedOut(ped2, true)
+			else
+				if GetVehicleClass(veh) ~= 18 and GetVehicleClass(veh) ~= 19 then
+					
+					if ped2 ~= 0 then	
+						if lock ~= 4 then
+							SetVehicleDoorsLocked(veh, 4)
+							SetPedCanBeDraggedOut(ped2, false)
+						end
+					else
+						SetVehicleDoorsLocked(veh, 4)
+						SetPedCanBeDraggedOut(ped2, false)
+					end
+				end
+			end
+		end
 	end
 end)
 
@@ -89,12 +111,14 @@ RegisterNUICallback('toggleVehicleLocks', function()
 		if GetPedInVehicleSeat(vehicle, 0) then
 			if lockStatus == 0 or lockStatus == 1 then
 				SetVehicleDoorsLocked(vehicle, 2)
-				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+				SetVehicleDoorsLockedForPlayer(vehicle, PlayerId(), true)
+				SetVehicleDoorsLockedForAllPlayers(vehicle, true)
 				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock', 1.0)
 				ESX.ShowNotification('Your doors are now locked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 			elseif lockStatus == 2 then
 				SetVehicleDoorsLocked(vehicle, 1)
+				SetVehicleDoorsLockedForPlayer(vehicle, PlayerId(), false)
 				SetVehicleDoorsLockedForAllPlayers(vehicle, false)
 				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
 				ESX.ShowNotification('Your doors are now unlocked.')
@@ -105,15 +129,33 @@ RegisterNUICallback('toggleVehicleLocks', function()
 		end
 	elseif vehicle == 0 and lastCar ~= 0 then
 		if lockStatusOutside == 0 or lockStatusOutside == 1 then
+		
+			local lib = "anim@mp_player_intmenu@key_fob@"
+			local anim = "fob_click"
+			
+			ESX.Streaming.RequestAnimDict(lib, function()
+				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
+			end)
+		
+		
 			SetVehicleDoorsLocked(lastCar, 2)
-			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), true)
+			SetVehicleDoorsLockedForAllPlayers(lastCar, true)
 			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock', 1.0)
 			ESX.ShowNotification('Your doors are now locked.')
-			Wait(500)
-			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock2', 1.0)		
+			Wait(250)
+			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock2', 0.7)		
 		elseif lockStatusOutside == 2 then
+		
+			local lib = "anim@mp_player_intmenu@key_fob@"
+			local anim = "fob_click"
+			
+			ESX.Streaming.RequestAnimDict(lib, function()
+				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
+			end)
+			
 			SetVehicleDoorsLocked(lastCar, 1)
-			SetVehicleDoorsLockedForAllPlayers(vehicle, false)
+			SetVehicleDoorsLockedForAllPlayers(lastCar, false)
 			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
 			ESX.ShowNotification('Your doors are now unlocked.')
 		else

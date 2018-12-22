@@ -2,19 +2,19 @@ resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
 
 description 'ESX AIOMenu'
 
-version '1.5.2'
+version '1.5.3'
 
 server_scripts({
+	'config/config.lua',
 	'server/main.lua',
 	'@mysql-async/lib/MySQL.lua',
-	'@es_extended/locale.lua',
-	'config.lua'
+	'@es_extended/locale.lua'
 })
 
 client_scripts({
+	'config/config.lua',
 	'client/main.lua',
-	'@es_extended/locale.lua',
-	'config.lua'
+	'@es_extended/locale.lua'
 })
 
 dependency 'es_extended'
