@@ -5,14 +5,14 @@ description 'ESX AIOMenu'
 version '1.5.3'
 
 server_scripts({
-	'config/config.lua',
+	'config.lua',
 	'server/main.lua',
 	'@mysql-async/lib/MySQL.lua',
 	'@es_extended/locale.lua'
 })
 
 client_scripts({
-	'config/config.lua',
+	'config.lua',
 	'client/main.lua',
 	'@es_extended/locale.lua'
 })
