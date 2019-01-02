@@ -2,7 +2,6 @@ local Vehicle 		= GetVehiclePedIsIn(ped, false)
 local inVehicle 	= IsPedSittingInAnyVehicle(ped)
 local lastCar 		= nil
 local myIdentity 	= {}
-local vehicles 		= {}
 myIdentifiers 		= {}
 ESX					= nil
 
@@ -117,13 +116,13 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			if lockStatus == 0 or lockStatus == 1 then
 				SetVehicleDoorsLocked(vehicle, 2)
 				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
-				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock', 1.0)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'lock', 1.0)
 				ESX.ShowNotification('Your doors are now locked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 			elseif lockStatus == 2 then
 				SetVehicleDoorsLocked(vehicle, 1)
 				SetVehicleDoorsLockedForAllPlayers(vehicle, false)
-				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'unlock', 1.0)
 				ESX.ShowNotification('Your doors are now unlocked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 			end
@@ -145,7 +144,7 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
 			Wait(250)
 			ESX.ShowNotification('Your doors are now locked.')
-			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'lock2', 0.7)		
+			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'lock2', 0.7)		
 		elseif lockStatusOutside == 2 then
 		
 			local lib = "anim@mp_player_intmenu@key_fob@"
@@ -157,7 +156,7 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			
 			SetVehicleDoorsLocked(lastCar, 1)
 			SetVehicleDoorsLockedForAllPlayers(vehicle, false)
-			TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.5, 'unlock', 1.0)
+			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'unlock2', 0.9)
 			ESX.ShowNotification('Your doors are now unlocked.')
 		else
 			ESX.ShowNotification('There is no vehicle to lock/unlock.')
@@ -755,16 +754,35 @@ AddEventHandler('InteractSound_CL:PlayWithinDistance', function(playerNetId, max
     end
 end)
 
-RegisterNetEvent('InteractSound_CL:PlayWithinDistance')
-AddEventHandler('InteractSound_CL:PlayWithinDistance', function(playerNetId, maxDistance, soundFile, soundVolume)
-    local lCoords = GetEntityCoords(GetPlayerPed(-1))
+RegisterNetEvent('InteractSound_CL:PlayOnVehicle')
+AddEventHandler('InteractSound_CL:PlayOnVehicle', function(playerNetId, maxDistance, soundFile, soundVolume)
+    local lCoords = GetEntityCoords(lastCar, false)
     local eCoords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(playerNetId)))
     local distIs  = Vdist(lCoords.x, lCoords.y, lCoords.z, eCoords.x, eCoords.y, eCoords.z)
+	local farSound
     if(distIs <= maxDistance) then
         SendNUIMessage({
             transactionType     = 'playSound',
             transactionFile     = soundFile,
             transactionVolume   = soundVolume
+        })
+	elseif distIs > maxDistance and distIs < 10.0 then
+        SendNUIMessage({
+            transactionType     = 'playSound',
+            transactionFile     = soundFile,
+            transactionVolume   = 0.5
+        })
+	elseif distIs > 10.0 and distIs < 15.0 then
+        SendNUIMessage({
+            transactionType     = 'playSound',
+            transactionFile     = soundFile,
+            transactionVolume   = 0.25
+        })
+	elseif distIs > 15.0 and distIs < 20.0 then
+        SendNUIMessage({
+            transactionType     = 'playSound',
+            transactionFile     = soundFile,
+            transactionVolume   = 0.10
         })
     end
 end)

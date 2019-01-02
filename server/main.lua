@@ -301,3 +301,8 @@ AddEventHandler('InteractSound_SV:PlayWithinDistance', function(maxDistance, sou
     TriggerClientEvent('InteractSound_CL:PlayWithinDistance', -1, source, maxDistance, soundFile, soundVolume)
 end)
 
+RegisterServerEvent('InteractSound_SV:PlayOnVehicle')
+AddEventHandler('InteractSound_SV:PlayOnVehicle', function(maxDistance, soundFile, soundVolume)
+    TriggerClientEvent('InteractSound_CL:PlayOnVehicle', -1, source, maxDistance, soundFile, soundVolume)
+end)
+

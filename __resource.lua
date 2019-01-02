@@ -27,5 +27,6 @@ files({
 	'client/html/script.js',
 	'client/html/sounds/lock.ogg',
 	'client/html/sounds/lock2.ogg',
-	'client/html/sounds/unlock.ogg'
+	'client/html/sounds/unlock.ogg',
+	'client/html/sounds/unlock2.ogg'
 })
