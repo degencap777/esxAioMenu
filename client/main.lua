@@ -31,27 +31,84 @@ Citizen.CreateThread(function()
 			SendNUIMessage({type = 'close'})
 		end
 		
-		if Config.disableStealingNpcDrivenCars == true then
+		if IsControlJustPressed(1, 121) then
+			doToggleVehicleLocks()
+		end
 		
-			if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then
+		if IsControlJustPressed(1, 178) then
+			doToggleEngine()
+		end
+		
+		if Config.disableStealingNpcDrivenCars == true then	
+		
+			if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then		
 			
-				local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))
-				local lock = GetVehicleDoorLockStatus(vehicle)
-				local job = tostring(exports['esx_policejob']:getJob())
+				local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))				
+				local lock = GetVehicleDoorLockStatus(veh)			
+				local ped = GetPedInVehicleSeat(veh, -1)			
+				local job = tostring(exports['esx_policejob']:getJob())		
+				
 				if job == "police" or job == "ambulance" then
-					SetVehicleDoorsLocked(veh, 0)
-					SetPedCanBeDraggedOut(ped2, true)
-				else
-					if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
-						local ped2 = GetPedInVehicleSeat(veh, -1)
-						if ped2 ~= 0 then	
-							SetVehicleDoorsLocked(veh, 4)
-							SetPedCanBeDraggedOut(ped2, false)
-						else
-							if lock ~= 0 then
-								SetVehicleDoorsLocked(veh, 4)
-								SetPedCanBeDraggedOut(ped2, false)
+				
+					if ped ~= 0 then
+					
+						SetVehicleDoorsLocked(veh, 0)
+						SetPedCanBeDraggedOut(ped, true)
+						
+					else
+					
+						if lock == 7 or lock == 6 or lock == 5 or lock == 4 or lock == 3 or lock == 2 then
+						
+							if lastCar == veh then			
+								SetVehicleDoorsLocked(veh, 0)
+								SetVehicleNeedsToBeHotwired(veh, false)
+							else
+								SetVehicleDoorsLocked(veh, 7)
+								SetVehicleNeedsToBeHotwired(veh, true)
 							end
+							
+						else
+						
+							SetVehicleDoorsLocked(veh, 0)
+							SetVehicleNeedsToBeHotwired(veh, true)
+							
+						end
+						
+					end
+						
+				else
+				
+					if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
+						
+						SetVehicleDoorsLocked(veh, 2)
+					
+					else
+						
+						if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
+						
+							SetVehicleDoorsLocked(veh, 2)
+						
+						else
+							if ped ~= 0 then	
+						
+								SetVehicleDoorsLocked(veh, 2)
+								SetPedCanBeDraggedOut(ped, false)
+								
+							else	
+							
+								if lock == 7 or lock == 6 or lock == 5 or lock == 4 or lock == 3 or lock == 2 then
+									if lastCar == veh then
+										SetVehicleDoorsLocked(veh, 0)
+										SetVehicleNeedsToBeHotwired(veh, false)
+									else
+										SetVehicleDoorsLocked(veh, 7)
+										SetVehicleNeedsToBeHotwired(veh, true)							
+									end
+								else
+									SetVehicleDoorsLocked(veh, 0)
+									SetVehicleNeedsToBeHotwired(veh, true)		
+								end
+							end	
 						end
 					end
 				end
@@ -93,10 +150,8 @@ function doToggleEngine()
 		if GetPedInVehicleSeat(vehicle, 0) then
 			if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
 				SetVehicleEngineOn(vehicle, false, false, true)
-				ESX.ShowNotification('Your engine is now off.')
 			else
 				SetVehicleEngineOn(vehicle, true, false, true)
-				ESX.ShowNotification('Your engine is now on.')
 			end
 		else
 			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
@@ -107,19 +162,23 @@ function doToggleEngine()
 end
 
 RegisterNUICallback('toggleVehicleLocks', function()
+	doToggleVehicleLocks()
+end)
+
+function doToggleVehicleLocks()
 	local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
 	
 	lockStatus = GetVehicleDoorLockStatus(vehicle)
 	lockStatusOutside = GetVehicleDoorLockStatus(lastCar)
 	if vehicle ~= nil and vehicle ~= 0 then
 		if GetPedInVehicleSeat(vehicle, 0) then			
-			if lockStatus == 0 or lockStatus == 1 then
-				SetVehicleDoorsLocked(vehicle, 2)
+			if lockStatus ~= 7 then
+				SetVehicleDoorsLocked(vehicle, 7)
 				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
 				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'lock', 1.0)
 				ESX.ShowNotification('Your doors are now locked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-			elseif lockStatus == 2 then
+			elseif lockStatus ~= 1 then
 				SetVehicleDoorsLocked(vehicle, 1)
 				SetVehicleDoorsLockedForAllPlayers(vehicle, false)
 				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'unlock', 1.0)
@@ -130,7 +189,7 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
 		end
 	elseif vehicle == 0 and lastCar ~= nil then
-		if lockStatusOutside == 0 or lockStatusOutside == 1 then
+		if lockStatusOutside ~= 7 then
 		
 			local lib = "anim@mp_player_intmenu@key_fob@"
 			local anim = "fob_click"
@@ -140,12 +199,12 @@ RegisterNUICallback('toggleVehicleLocks', function()
 			end)
 		
 		
-			SetVehicleDoorsLocked(lastCar, 2)
+			SetVehicleDoorsLocked(lastCar, 7)
 			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
 			Wait(250)
 			ESX.ShowNotification('Your doors are now locked.')
 			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'lock2', 0.7)		
-		elseif lockStatusOutside == 2 then
+		elseif lockStatusOutside ~= 1 then
 		
 			local lib = "anim@mp_player_intmenu@key_fob@"
 			local anim = "fob_click"
@@ -164,7 +223,7 @@ RegisterNUICallback('toggleVehicleLocks', function()
 	else
 		ESX.ShowNotification('You must be inside of a vehicle to use this.')
 	end
-end)
+end
 
 --================================================================================================
 --==                                  ESX Actions GUI                                           ==

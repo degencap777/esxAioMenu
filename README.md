@@ -1,27 +1,25 @@
 # esx_aiomenu
 
 ## Requirements
-* Dependencies For Full Functionality
-  * [es_extended](https://github.com/ESX-Org/es_extended)
-  * [esx_phone](https://github.com/ESX-Org/esx_phone)
-  * [esx_billing](https://github.com/ESX-Org/esx_billing)
-  * [esx_voice](https://github.com/ESX-Org/esx_voice)
-  * [esx_animations](https://github.com/ESX-Org/esx_animations)
-  * [esx_policejob](https://github.com/ESX-Org/esx_policejob)
-  * [esx_ambulancejob](https://github.com/ESX-Org/esx_ambulancejob)
-  * [esx_mecanojob](https://github.com/ESX-Org/esx_mecanojob)
-  * [es_taxijob](https://github.com/ESX-Org/esx_taxijob)
-  * [esx_identity](https://github.com/ArkSeyonet/esx_identity)
+* [es_extended](https://github.com/ESX-Org/es_extended)
+* [esx_phone](https://github.com/ESX-Org/esx_phone)
+* [esx_billing](https://github.com/ESX-Org/esx_billing)
+* [esx_voice](https://github.com/ESX-Org/esx_voice)
+* [esx_animations](https://github.com/ESX-Org/esx_animations)
+* [esx_policejob](https://github.com/ESX-Org/esx_policejob)
+* [esx_ambulancejob](https://github.com/ESX-Org/esx_ambulancejob)
+* [esx_mecanojob](https://github.com/ESX-Org/esx_mecanojob)
+* [es_taxijob](https://github.com/ESX-Org/esx_taxijob)
+* [esx_identity](https://github.com/ArkSeyonet/esx_identity)
 
 The updated version of ESX Identity on my github is REQUIRED for the updated AIOMenu.
 
 ## Installation
 
 1) Install To resources/[esx]/esx_aiomenu
-`<< MUST BE INSTALLED HERE`
 
-2) Please edit your esx scripts with the information from exportsSetup.lua
-`<< MANY FEATURES OF THIS SCRIPT ARE DEPENDANT ON THESE EDITS`
+2) Manually Add Code In Your ESX Scripts From exportsSetup.lua
+`<< If you do not do this step ESX AIOMenu WILL break`
 
 3) Add this in your server.cfg :
 ```
@@ -38,6 +36,14 @@ start esx_aiomenu
 * Give Phone Number (Proximity)
 * Open ESX Menus through UI Buttons and not keyboard keys.
 * Character Creation/Deletion via UI Buttons and not commands.
+* Config.DisableEnteringNPCDrivenVehicles (FALSE BY DEFAULT)
+`<< This config option adds several features listed below`
+
+## Config Features
+* Police and Emergency Workers can enter any vehicle
+* Players Cannot Steal NPC Driven Vehicles
+* Players Cannot Steal Police or Emergency Vehicles
+* Players Can Steal Any Parked Or Locked Vehicle, But They Must Break In And Hotwire The Vehicle (But Not Police Or Emergency Vehicles)
 
 [WIP]
 * Integration With All Jobs
