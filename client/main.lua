@@ -172,9 +172,9 @@ function doToggleVehicleLocks()
 	lockStatusOutside = GetVehicleDoorLockStatus(lastCar)
 	if vehicle ~= nil and vehicle ~= 0 then
 		if GetPedInVehicleSeat(vehicle, 0) then			
-			if lockStatus ~= 7 then
-				SetVehicleDoorsLocked(vehicle, 7)
-				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+			if lockStatus ~= 4 then
+				SetVehicleDoorsLocked(vehicle, 4)
+				SetVehicleDoorsLockedForAllPlayers(vehicle, true)
 				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'lock', 1.0)
 				ESX.ShowNotification('Your doors are now locked.')
 				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
@@ -189,7 +189,7 @@ function doToggleVehicleLocks()
 			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
 		end
 	elseif vehicle == 0 and lastCar ~= nil then
-		if lockStatusOutside ~= 7 then
+		if lockStatusOutside ~= 4 then
 		
 			local lib = "anim@mp_player_intmenu@key_fob@"
 			local anim = "fob_click"
@@ -197,10 +197,9 @@ function doToggleVehicleLocks()
 			ESX.Streaming.RequestAnimDict(lib, function()
 				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
 			end)
-		
-		
-			SetVehicleDoorsLocked(lastCar, 7)
-			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
+			
+			SetVehicleDoorsLocked(lastCar, 4)
+			SetVehicleDoorsLockedForAllPlayers(vehicle, true)
 			Wait(250)
 			ESX.ShowNotification('Your doors are now locked.')
 			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'lock2', 0.7)		
