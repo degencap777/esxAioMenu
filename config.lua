@@ -1,10 +1,5 @@
 Config = {
 
-disableStealingNpcDrivenCars    = true,
-lockTimer                       = 2,
-versionChecker                  = true,
-enableSharingKeys               = true
+disableStealingNpcDrivenCars = false
 
 }
-
-_VERSION = 1.6
