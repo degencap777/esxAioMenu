@@ -1,9 +1,19 @@
-local Vehicle 		= GetVehiclePedIsIn(ped, false)
-local inVehicle 	= IsPedSittingInAnyVehicle(ped)
-local lastCar 		= nil
-local myIdentity 	= {}
-myIdentifiers 		= {}
-ESX					= nil
+--================================================================================================
+--==                                 Client Variables                                           ==
+--================================================================================================
+
+ESX							= nil
+local lastCar 				= nil
+local lastCar2 				= nil
+local myIdentity 			= {}
+local myIdentifiers 		= {}
+local lockStatus 			= nil
+local lockStatusOutside		= nil
+local vehicles 				= {}
+
+--================================================================================================
+--==                                  Client Threads                                            ==
+--================================================================================================
 
 Citizen.CreateThread(function()
 
@@ -11,7 +21,7 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-	
+
 	while true do
 		Wait(0)
 
@@ -19,6 +29,7 @@ Citizen.CreateThread(function()
 			SetNuiFocus(true, true)
 			SendNUIMessage({type = 'openGeneral'})
 			local ped = GetPlayerPed(-1)
+
 			if IsPedInAnyVehicle(ped, true) then 
 				SendNUIMessage({type = 'showVehicleButton'})
 			else 
@@ -38,84 +49,155 @@ Citizen.CreateThread(function()
 		if IsControlJustPressed(1, 178) then
 			doToggleEngine()
 		end
-		
-		if Config.disableStealingNpcDrivenCars == true then	
-		
-			if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then		
-			
-				local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))				
-				local lock = GetVehicleDoorLockStatus(veh)			
-				local ped = GetPedInVehicleSeat(veh, -1)			
-				local job = tostring(exports['esx_policejob']:getJob())		
-				
-				if job == "police" or job == "ambulance" then
-				
-					if ped ~= 0 then
-					
-						SetVehicleDoorsLocked(veh, 0)
-						SetPedCanBeDraggedOut(ped, true)
-						
-					else
-					
-						if lock == 7 or lock == 6 or lock == 5 or lock == 4 or lock == 3 or lock == 2 then
-						
-							if lastCar == veh then			
-								SetVehicleDoorsLocked(veh, 0)
-								SetVehicleNeedsToBeHotwired(veh, false)
-							else
-								SetVehicleDoorsLocked(veh, 7)
-								SetVehicleNeedsToBeHotwired(veh, true)
-							end
-							
-						else
-						
-							SetVehicleDoorsLocked(veh, 0)
-							SetVehicleNeedsToBeHotwired(veh, true)
-							
-						end
-						
-					end
-						
-				else
-				
-					if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
-						
-						SetVehicleDoorsLocked(veh, 2)
-					
-					else
-						
-						if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 19 then
-						
-							SetVehicleDoorsLocked(veh, 2)
-						
-						else
-							if ped ~= 0 then	
-						
-								SetVehicleDoorsLocked(veh, 2)
-								SetPedCanBeDraggedOut(ped, false)
-								
-							else	
-							
-								if lock == 7 or lock == 6 or lock == 5 or lock == 4 or lock == 3 or lock == 2 then
-									if lastCar == veh then
-										SetVehicleDoorsLocked(veh, 0)
-										SetVehicleNeedsToBeHotwired(veh, false)
-									else
-										SetVehicleDoorsLocked(veh, 7)
-										SetVehicleNeedsToBeHotwired(veh, true)							
-									end
-								else
-									SetVehicleDoorsLocked(veh, 0)
-									SetVehicleNeedsToBeHotwired(veh, true)		
-								end
-							end	
-						end
-					end
-				end
-			end
-		end
+
+--		if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then	
+--				local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))				
+--				local lock = GetVehicleDoorLockStatus(veh)			
+--				local ped2 = GetPedInVehicleSeat(veh, -1)			
+--				local job = tostring(exports['esx_policejob']:getJob())	
+	--			local playerPed = nil
+--
+--				if Config.disableStealingNpcDrivenCars == true then
+--
+--	   				for i = 0, 31 do
+--						if(ped2 == GetPlayerPed(i)) then
+--						  	playerped = GetPlayerPed(i)
+--						 	 break
+--						end
+--					end
+--
+--					if ped2 ~= 0 then
+--
+--						if ped2 == playerPed then
+--							ESX.ShowNotification('System: Found Player.')
+--							SetVehicleDoorsLockedForPlayer(veh, PlayerId(), false)
+--						else
+--
+--							if job == "police" or job == "ambulance" then
+--								ESX.ShowNotification('System: Found NPC. Job Accepted.')
+--								SetVehicleDoorsLockedForPlayer(veh, PlayerId(), false)
+--								SetPedCanBeDraggedOut(ped2, true)		
+--								lastCar2 = veh				
+---							else
+	--							ESX.ShowNotification('System: Found NPC. Job Rejected.')
+	--							SetVehicleDoorsLockedForPlayer(veh, PlayerId(), true)
+	--							SetPedCanBeDraggedOut(ped2, false)
+--							end
+--						end
+--
+--					else
+--						if lock ~= 2 then
+--							if lastCar2 == veh then
+--								ESX.ShowNotification('System: Saved Vehicle Found.')
+--								SetVehicleDoorsLockedForPlayer(veh, PlayerId(), false)
+--								SetVehicleNeedsToBeHotwired(veh, false)
+--							else
+--								ESX.ShowNotification('System: No NPC or Player. Saved Vehicle Not Found.')
+--								SetVehicleDoorsLockedForPlayer(veh, PlayerId(), false)
+--								SetVehicleDoorsLocked(veh, 7)
+--								SetVehicleNeedsToBeHotwired(veh, true)
+--								lastCar2 = veh
+--							end
+--						else
+--							ESX.ShowNotification('System: Player Locked Vehicle Found.')
+--							SetVehicleDoorsLockedForPlayer(veh, PlayerId(), true)
+--						end
+--					end
+--				end
+--			end
 	end
 end)
+
+Citizen.CreateThread(function()
+    timer = Config.lockTimer * 1000
+    time = 0
+	while true do
+		Wait(1000)
+		time = time + 1000
+	end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+
+        -- If the defined key is pressed
+        if IsControlJustPressed(1, 11) then
+
+            -- Init player infos
+            local ply = GetPlayerPed(-1)
+            local pCoords = GetEntityCoords(ply, true)
+            local px, py, pz = table.unpack(GetEntityCoords(ply, true))
+            isInside = false
+
+            -- Retrieve the local ID of the targeted vehicle
+            if(IsPedInAnyVehicle(ply, true))then
+                -- by sitting inside him
+                localVehId = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+                isInside = true
+            else
+                -- by targeting the vehicle
+                localVehId = GetTargetedVehicle(pCoords, ply)
+            end
+
+            -- Get targeted vehicle infos
+            if(localVehId and localVehId ~= 0)then
+                local localVehPlateTest = GetVehicleNumberPlateText(localVehId)
+                if localVehPlateTest ~= nil then
+                    local localVehPlate = string.lower(localVehPlateTest)
+                    local localVehLockStatus = GetVehicleDoorLockStatus(localVehId)
+                    local hasKey = false
+
+                    -- If the vehicle appear in the table (if this is the player's vehicle or a locked vehicle)
+                    for plate, vehicle in pairs(vehicles) do
+                        if(string.lower(plate) == localVehPlate)then
+                            -- If the vehicle is not locked (this is the player's vehicle)
+                            if(vehicle ~= "locked")then
+                                hasKey = true
+                                if(time > timer)then
+                                    -- update the vehicle infos (Useful for hydrating instances created by the /givekey command)
+                                    vehicle.update(localVehId, localVehLockStatus)
+                                    -- Lock or unlock the vehicle
+                                    vehicle.lock()
+                                    time = 0
+                                else
+                                    TriggerEvent("aiomenu:notify", _U("lock_cooldown", (timer / 1000)))
+                                end
+                            else
+                                TriggerEvent("aiomenu:notify", _U("keys_not_inside"))
+                            end
+                        end
+                    end
+
+                    -- If the player doesn't have the keys
+                    if(not hasKey)then
+                        -- If the player is inside the vehicle
+                        if(isInside)then
+                            -- If the player find the keys
+                            if(canSteal())then
+                                -- Check if the vehicle is already owned.
+                                -- And send the parameters to create the vehicle object if this is not the case.
+                                TriggerServerEvent('aiomenu:checkOwner', localVehId, localVehPlate, localVehLockStatus)
+                            else
+                                -- If the player doesn't find the keys
+                                -- Lock the vehicle (players can't try to find the keys again)
+                                vehicles[localVehPlate] = "locked"
+                                TriggerServerEvent("aiomenu:lockTheVehicle", localVehPlate)
+                                TriggerEvent("aiomenu:notify", _U("keys_not_inside"))
+                            end
+                        end
+                    end
+                else
+                    TriggerEvent("aiomenu:notify", _U("could_not_find_plate"))
+                end
+            end
+        end
+    end
+end)
+
+--================================================================================================
+--==                                  NUI Callbacks                                             ==
+--================================================================================================
 
 RegisterNUICallback('NUIFocusOff', function()
 	SetNuiFocus(false, false)
@@ -144,90 +226,10 @@ RegisterNUICallback('toggleEngineOnOff', function()
 	doToggleEngine()
 end)
 
-function doToggleEngine()
-    local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-    if vehicle ~= nil and vehicle ~= 0 then
-		if GetPedInVehicleSeat(vehicle, 0) then
-			if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
-				SetVehicleEngineOn(vehicle, false, false, true)
-			else
-				SetVehicleEngineOn(vehicle, true, false, true)
-			end
-		else
-			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
-		end
-	else
-		ESX.ShowNotification('You must be inside of a vehicle to use this.')
-    end
-end
-
 RegisterNUICallback('toggleVehicleLocks', function()
 	doToggleVehicleLocks()
 end)
 
-function doToggleVehicleLocks()
-	local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-	
-	lockStatus = GetVehicleDoorLockStatus(vehicle)
-	lockStatusOutside = GetVehicleDoorLockStatus(lastCar)
-	if vehicle ~= nil and vehicle ~= 0 then
-		if GetPedInVehicleSeat(vehicle, 0) then			
-			if lockStatus ~= 7 then
-				SetVehicleDoorsLocked(vehicle, 7)
-				SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
-				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'lock', 1.0)
-				ESX.ShowNotification('Your doors are now locked.')
-				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-			elseif lockStatus ~= 1 then
-				SetVehicleDoorsLocked(vehicle, 1)
-				SetVehicleDoorsLockedForAllPlayers(vehicle, false)
-				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'unlock', 1.0)
-				ESX.ShowNotification('Your doors are now unlocked.')
-				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
-			end
-		else
-			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
-		end
-	elseif vehicle == 0 and lastCar ~= nil then
-		if lockStatusOutside ~= 7 then
-		
-			local lib = "anim@mp_player_intmenu@key_fob@"
-			local anim = "fob_click"
-			
-			ESX.Streaming.RequestAnimDict(lib, function()
-				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
-			end)
-		
-		
-			SetVehicleDoorsLocked(lastCar, 7)
-			SetVehicleDoorsLockedForPlayer(lastCar, PlayerId(), false)
-			Wait(250)
-			ESX.ShowNotification('Your doors are now locked.')
-			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'lock2', 0.7)		
-		elseif lockStatusOutside ~= 1 then
-		
-			local lib = "anim@mp_player_intmenu@key_fob@"
-			local anim = "fob_click"
-			
-			ESX.Streaming.RequestAnimDict(lib, function()
-				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
-			end)
-			
-			SetVehicleDoorsLocked(lastCar, 1)
-			SetVehicleDoorsLockedForAllPlayers(vehicle, false)
-			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'unlock2', 0.9)
-			ESX.ShowNotification('Your doors are now unlocked.')
-		else
-			ESX.ShowNotification('There is no vehicle to lock/unlock.')
-		end
-	else
-		ESX.ShowNotification('You must be inside of a vehicle to use this.')
-	end
-end
-
---================================================================================================
---==                                  ESX Actions GUI                                           ==
---================================================================================================
 RegisterNUICallback('NUIESXActions', function(data)
 	SetNuiFocus(true, true)
 	SendNUIMessage({type = 'openESX'})
@@ -697,21 +699,11 @@ RegisterNUICallback('NUIShowCharacterControls', function()
 	SendNUIMessage({type = 'openCharacter'})
 end)
 
-RegisterNetEvent("menu:setCharacters")
-AddEventHandler("menu:setCharacters", function(identity)
-	myIdentity = identity
-end)
-
-RegisterNetEvent("menu:setIdentifier")
-AddEventHandler("menu:setIdentifier", function(data)
-	myIdentifiers = data
-end)
-
 RegisterNUICallback('NUIdeleteCharacter', function(data)
 	TriggerServerEvent('menu:setChars', myIdentifiers)
 	Wait(1000)
 	SetNuiFocus(true, true)
-	local bt  = myIdentity.character1 --- Character 1 ---
+	local bt  = myIdentity.character1
   
 	SendNUIMessage({
 		type = "deleteCharacter",
@@ -734,8 +726,75 @@ RegisterNUICallback('NUIDelChar', function(data)
 	cb(data)
 end)
 
-RegisterNetEvent('sendProximityMessageID')
-AddEventHandler('sendProximityMessageID', function(id, message)
+--================================================================================================
+--==                                      Client Events                                         ==
+--================================================================================================
+
+RegisterNetEvent("aiomenu:updateVehiclePlate")
+AddEventHandler("aiomenu:updateVehiclePlate", function(oldPlate, newPlate)
+    local oldPlate = string.lower(oldPlate)
+    local newPlate = string.lower(newPlate)
+
+    if(vehicles[oldPlate])then
+        vehicles[newPlate] = vehicles[oldPlate]
+        vehicles[oldPlate] = nil
+
+        TriggerServerEvent("aiomenu:updateServerVehiclePlate", oldPlate, newPlate)
+    end
+end)
+
+RegisterNetEvent("aiomenu:getHasOwner")
+AddEventHandler("aiomenu:getHasOwner", function(hasOwner, localVehId, localVehPlate, localVehLockStatus)
+    if(not hasOwner)then
+        TriggerEvent("aiomenu:newVehicle", localVehPlate, localVehId, localVehLockStatus)
+        TriggerServerEvent("aiomenu:addOwner", localVehPlate)
+
+        TriggerEvent("aiomenu:notify", getRandomMsg())
+    else
+        TriggerEvent("aiomenu:notify", _U("vehicle_not_owned"))
+    end
+end)
+
+RegisterNetEvent("aiomenu:newVehicle")
+AddEventHandler("aiomenu:newVehicle", function(plate, id, lockStatus)
+    if(plate)then
+        local plate = string.lower(plate)
+        if(not id)then id = nil end
+        if(not lockStatus)then lockStatus = nil end
+        vehicles[plate] = newVehicle()
+        vehicles[plate].__construct(plate, id, lockStatus)
+    else
+        print("Can't create the vehicle instance. Missing argument PLATE")
+    end
+end)
+
+RegisterNetEvent("aiomenu:giveKeys")
+AddEventHandler("aiomenu:giveKeys", function(plate)
+    local plate = string.lower(plate)
+    TriggerEvent("aiomenu:newVehicle", plate, nil, nil)
+end)
+
+AddEventHandler("playerSpawned", function()
+    TriggerServerEvent("aiomenu:retrieveVehiclesOnconnect")
+end)
+
+RegisterNetEvent("aiomenu:notify")
+AddEventHandler("aiomenu:notify", function(text, duration)
+	Notify(text, duration)
+end)
+
+RegisterNetEvent("menu:setCharacters")
+AddEventHandler("menu:setCharacters", function(identity)
+	myIdentity = identity
+end)
+
+RegisterNetEvent("menu:setIdentifier")
+AddEventHandler("menu:setIdentifier", function(data)
+	myIdentifiers = data
+end)
+
+RegisterNetEvent("sendProximityMessageID")
+AddEventHandler("sendProximityMessageID", function(id, message)
 	local myId = PlayerId()
 	local pid = GetPlayerFromServerId(id)
 	if pid == myId then
@@ -745,8 +804,8 @@ AddEventHandler('sendProximityMessageID', function(id, message)
 	end
 end)
 
-RegisterNetEvent('sendProximityMessagePhone')
-AddEventHandler('sendProximityMessagePhone', function(id, name, message)
+RegisterNetEvent("sendProximityMessagePhone")
+AddEventHandler("sendProximityMessagePhone", function(id, name, message)
 	local myId = PlayerId()
 	local pid = GetPlayerFromServerId(id)
 	if pid == myId then
@@ -756,18 +815,18 @@ AddEventHandler('sendProximityMessagePhone', function(id, name, message)
 	end
 end)
 
-RegisterNetEvent('successfulDeleteIdentity')
-AddEventHandler('successfulDeleteIdentity', function(data)
+RegisterNetEvent("successfulDeleteIdentity")
+AddEventHandler("successfulDeleteIdentity", function(data)
 	ESX.ShowNotification('Successfully deleted ' .. data.firstname .. ' ' .. data.lastname .. '.')
 end)
 
-RegisterNetEvent('failedDeleteIdentity')
-AddEventHandler('failedDeleteIdentity', function(data)
+RegisterNetEvent("failedDeleteIdentity")
+AddEventHandler("failedDeleteIdentity", function(data)
 	ESX.ShowNotification('Failed to delete ' .. data.firstname .. ' ' .. data.lastname .. '. Please contact a server admin.')
 end)
 
-RegisterNetEvent('noIdentity')
-AddEventHandler('noIdentity', function()
+RegisterNetEvent("noIdentity")
+AddEventHandler("noIdentity", function()
 	ESX.ShowNotification('You do not have an identity.')
 end)
 
@@ -845,3 +904,239 @@ AddEventHandler('InteractSound_CL:PlayOnVehicle', function(playerNetId, maxDista
         })
     end
 end)
+
+--================================================================================================
+--==                                      Functions                                             ==
+--================================================================================================
+
+function newVehicle()
+    local self = {}
+
+    self.id = nil
+    self.plate = nil
+    self.lockStatus = nil
+
+    rTable = {}
+
+    rTable.__construct = function(id, plate, lockStatus)
+        if(id and type(id) == "number")then
+            self.id = id
+        end
+        if(plate and type(plate) == "string")then
+            self.plate = plate
+        end
+        if(lockStatus and type(lockStatus) == "number")then
+            self.lockStatus = lockStatus
+        end
+    end
+
+    -- Methods
+
+    rTable.update = function(id, lockStatus)
+        self.id = id
+        self.lockStatus = lockStatus
+    end
+
+    -- 0, 1 = unlocked
+    -- 2 = locked
+    -- 4 = locked and player can't get out
+    rTable.lock = function()
+        lockStatus = self.lockStatus
+        if(lockStatus <= 2)then
+            self.lockStatus = 4
+            SetVehicleDoorsLocked(self.id, self.lockStatus)
+            SetVehicleDoorsLockedForAllPlayers(self.id, 1)
+            TriggerEvent("aiomenu:notify", _U("vehicle_locked"))
+            TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "lock", 1.0)
+        elseif(lockStatus > 2)then
+            self.lockStatus = 1
+            SetVehicleDoorsLocked(self.id, self.lockStatus)
+            SetVehicleDoorsLockedForAllPlayers(self.id, false)
+            TriggerEvent("aiomenu:notify", _U("vehicle_unlocked"))
+            TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "unlock", 1.0)
+        end
+    end
+
+    -- Setters
+
+    rTable.setId = function(id)
+        if(type(id) == "number" and id >= 0)then
+            self.id = id
+        end
+    end
+
+    rTable.setPlate = function(plate)
+        if(type(plate) == "string")then
+            self.plate = plate
+        end
+    end
+
+    rTable.setLockStatus = function(lockStatus)
+        if(type(lockStatus) == "number" and lockStatus >= 0)then
+            self.lockStatus = lockStatus
+            SetVehicleDoorsLocked(self.id, lockStatus)
+        end
+    end
+
+    -- Getters
+
+    rTable.getId = function()
+        return self.id
+    end
+
+    rTable.getPlate = function()
+        return self.plate
+    end
+
+    rTable.getLockStatus = function()
+        return self.lockStatus
+    end
+
+    return rTable
+end
+
+function canSteal()
+    nb = math.random(1, 100)
+    percentage = Config.percentage
+    if(nb < percentage)then
+        return true
+    else
+        return false
+    end
+end
+
+function getRandomMsg()
+    msgNb = math.random(1, #Config.randomMsg)
+    return Config.randomMsg[msgNb]
+end
+
+function GetVehicleInDirection(coordFrom, coordTo)
+	local rayHandle = CastRayPointToPoint(coordFrom.x, coordFrom.y, coordFrom.z, coordTo.x, coordTo.y, coordTo.z, 10, GetPlayerPed(-1), 0)
+	local a, b, c, d, vehicle = GetRaycastResult(rayHandle)
+	return vehicle
+end
+
+function GetTargetedVehicle(pCoords, ply)
+    for i = 1, 200 do
+        coordB = GetOffsetFromEntityInWorldCoords(ply, 0.0, (6.281)/i, 0.0)
+        targetedVehicle = GetVehicleInDirection(pCoords, coordB)
+        if(targetedVehicle ~= nil and targetedVehicle ~= 0)then
+            return targetedVehicle
+        end
+    end
+    return
+end
+
+function Notify(text, duration)
+	if(Config.notification)then
+		if(Config.notification == 1)then
+			if(not duration)then
+				duration = 0.080
+			end
+			SetNotificationTextEntry("STRING")
+			AddTextComponentString(text)
+			Citizen.InvokeNative(0x1E6611149DB3DB6B, "CHAR_LIFEINVADER", "CHAR_LIFEINVADER", true, 1, "ESX AIOMenu " .. _VERSION, "By Deediezi", duration)
+			DrawNotification_4(false, true)
+		elseif(Config.notification == 2)then
+			TriggerEvent('chatMessage', '^1ESX AIOMenu' .. _VERSION, {255, 255, 255}, text)
+		else
+			return
+		end
+	else
+		return
+	end
+end
+
+function checkForKey(source, vehPlate)
+	if vehPlate ~= nil then
+		TriggerServerEvent('aiomenu:haveKeys', source, vehPlate, function(callback)
+			if callback ~= nil then
+				if callback == true then
+					return true
+				elseif callback == false then
+					return false
+				else
+					local text = "There was an error"
+					return text
+				end
+			else
+					local text = "Callback was nil"
+					return text
+			end
+	else
+		ESX.ShowNotification('No Vehicle Plates.')
+	end
+end
+
+function doToggleEngine()
+    local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+    if vehicle ~= nil and vehicle ~= 0 then
+		if GetPedInVehicleSeat(vehicle, 0) then
+			if IsVehicleEngineOn(GetVehiclePedIsIn(GetPlayerPed(-1), false)) then
+				SetVehicleEngineOn(vehicle, false, false, true)
+			else
+				SetVehicleEngineOn(vehicle, true, false, true)
+			end
+		else
+			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
+		end
+	else
+		ESX.ShowNotification('You must be inside of a vehicle to use this.')
+    end
+end
+
+function doToggleVehicleLocks()
+	local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+	lockStatus = GetVehicleDoorLockStatus(vehicle)
+	lockStatusOutside = GetVehicleDoorLockStatus(lastCar)
+	
+	if vehicle ~= nil and vehicle ~= 0 then
+		if GetPedInVehicleSeat(vehicle, 0) then			
+			if lockStatus ~= 7 then
+				SetVehicleDoorsLocked(vehicle, 2)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'lock', 1.0)
+				ESX.ShowNotification('Your doors are now locked.')
+				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+			elseif lockStatus ~= 1 then
+				SetVehicleDoorsLocked(vehicle, 1)
+				TriggerServerEvent('InteractSound_SV:PlayWithinDistance', 0.2, 'unlock', 1.0)
+				ESX.ShowNotification('Your doors are now unlocked.')
+				lastCar = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+			end
+		else
+			ESX.ShowNotification('You must be the driver of a vehicle to use this.')
+		end
+	elseif vehicle == 0 and lastCar ~= nil then
+		if lockStatusOutside ~= 7 then
+		
+			local lib = "anim@mp_player_intmenu@key_fob@"
+			local anim = "fob_click"
+			
+			ESX.Streaming.RequestAnimDict(lib, function()
+				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
+			end)
+		
+		
+			SetVehicleDoorsLocked(lastCar, 2)
+			Wait(250)
+			ESX.ShowNotification('Your doors are now locked.')
+			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'lock2', 0.7)		
+		elseif lockStatusOutside ~= 1 then
+		
+			local lib = "anim@mp_player_intmenu@key_fob@"
+			local anim = "fob_click"
+			
+			ESX.Streaming.RequestAnimDict(lib, function()
+				TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0, false, false, false)
+			end)
+			
+			SetVehicleDoorsLocked(lastCar, 1)
+			TriggerServerEvent('InteractSound_SV:PlayOnVehicle', 5.0, 'unlock2', 0.9)
+			ESX.ShowNotification('Your doors are now unlocked.')
+		else
+			ESX.ShowNotification('There is no vehicle to lock/unlock.')
+		end
+	else
+		ESX.ShowNotification('You must be inside of a vehicle to use this.')
+	end
+end

@@ -36,7 +36,7 @@ start esx_aiomenu
 * Give Phone Number (Proximity)
 * Open ESX Menus through UI Buttons and not keyboard keys.
 * Character Creation/Deletion via UI Buttons and not commands.
-* Config.DisableEnteringNPCDrivenVehicles (FALSE BY DEFAULT)
+* Config.DisableEnteringNPCDrivenVehicles
 `<< This config option adds several features listed below`
 
 ## Config Features
