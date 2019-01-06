@@ -62,7 +62,7 @@ If you have any sources for esx_aiomenu that date before this update was release
 
 ## Credits
 * Lead Coder: ArkSeyonet
-* Coder 1: Vacant
+* Coder 1: Nom Chompski
 * Coder 2: Vacant
 * QA 1: Nom Chompski
 * QA 2: Circles
