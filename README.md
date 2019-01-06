@@ -11,6 +11,7 @@
 * [esx_mecanojob](https://github.com/ESX-Org/esx_mecanojob)
 * [es_taxijob](https://github.com/ESX-Org/esx_taxijob)
 * [esx_identity](https://github.com/ArkSeyonet/esx_identity)
+* [esx_locksystem](https://github.com/ArkSeyonet/esx_locksystem)
 
 The updated version of ESX Identity on my github is REQUIRED for the updated AIOMenu.
 
