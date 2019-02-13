@@ -2,188 +2,168 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
 
 body, html {
-	overflow-y: hidden;
+	overflow: hidden;
 }
+
+.background {
+	opacity: 0.7;
+    height: 650px;
+    width: 280px;
+	left: 83.7%;
+	position: absolute;
+	top: 38.9%;
+	border: 3px solid whitesmoke;
+}
+
+.general {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.esx {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.jobs {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.vehicleControls {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.character {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.deleteCharacter {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.doorControls {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.individualDoorControls {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.windowControls {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.individualWindowControls {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
+.interactions {
+	font-family: 'Roboto', sans-serif;
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	left: 70.4%;
+	width: 800px;
+	position: absolute;
+	top: 50%;
+}
+
 /* main.css */
 button {
-	margin: 10px auto;
+	margin: 1px auto;
 	padding: 10px 24px;
 	cursor: pointer;
 	width: 30%;
 	display: block;
 	text-transform: uppercase;
-    font-family: 'Unica One', cursive;
+	font-family: 'Unica One', cursive;
 	font-size: 12px;
 	border: 1px solid whitesmoke;
 	color: whitesmoke;
     background-color: #002e4d;
-    border-radius: 25px;
-    
-}
-
-.general {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.esx {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.jobs {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.vehicleControls {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.character {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.deleteCharacter {
-	font-family: 'Roboto', sans-serif;
-	margin: 10px 2px;
-	padding: 10px 24px;
-	background: ;
-	color: white;
-	width: 240px;
-	position: relative;
-	top: 26%;
-	left: 43.7%;
-
-}
-
-.doorControls {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.individualDoorControls {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.windowControls {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.individualWindowControls {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
-}
-
-.interactions {
-	font-family: 'Roboto', sans-serif;
-	height: 700px;
-	background: ;
-	color: white;
-	width: 800px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -250px;
-	margin-left: -400px;
-	padding-bottom: 20px;
+    border-radius: 25px;  
 }
 
 .delete {
-	font-family: 'Roboto', sans-serif;
-	margin: 10px 2px;
+	font-family: 'Unica One', cursive;
+	font-size: 12px;
+	margin: 1px 1px;
 	padding: 10px 24px;
 	background: ;
-	color: white;
+	border: 1px solid whitesmoke;
+	color: whitesmoke;
 	width: 240px;
 	position: relative;
-	top: 26%;
-	left: 43.7%;
+	top: 49.3%;
+	left: 85.25%;
 
 }
 

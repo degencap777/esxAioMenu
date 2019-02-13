@@ -5,6 +5,7 @@
 		<script src="script.js" type="text/javascript"></script>	
 
 		<style>
+		.background {display: none;}
 		.general {display: none;}
 		.esx {display: none;}
 		.jobs {display: none;}
@@ -24,7 +25,9 @@
 		/* open the UI for user */
 		window.addEventListener('message', function(event) {
 
+	
 		if (event.data.type == "openGeneral"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'block')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -38,6 +41,7 @@
 				$('.interactions').css('display', 'none')
                 	
 			} else if (event.data.type == "openESX"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'block')
 				$('.jobs').css('display', 'none')
@@ -51,6 +55,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openJobs"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'block')
@@ -64,6 +69,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openVehicleControls"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -77,6 +83,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openDoorControls"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -90,6 +97,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openIndividualDoorControls"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -103,6 +111,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openCharacter"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -116,6 +125,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openWindowControls"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -129,6 +139,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "openInteractions"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -142,6 +153,7 @@
 				$('.interactions').css('display', 'block')
 				
 			} else if (event.data.type == "openIndividualWindowControls"){
+				$('.background').css('display', 'block')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -155,6 +167,7 @@
 				$('.interactions').css('display', 'none')
 				
 			} else if (event.data.type == "closeAll"){
+				$('.background').css('display', 'none')
 				$('.general').css('display', 'none')
 				$('.esx').css('display', 'none')
 				$('.jobs').css('display', 'none')
@@ -260,13 +273,18 @@
 	</head>
 
     <body>
+	
+		<div class="background">
+			<img src="img/bg.png"/>
+		</div>
+		
 		<div class="general">
 			<div class="main">
 				<button id="int_gui">Interactions</button>		
 				<button id="veh_gui">Vehicle</button>
 				<button id="char_gui">Character</button>	
 				<button id="esx_gui">ESX</button>
-				<button id="job_gui">Jobs</button>
+				<!-- <button id="job_gui">Jobs</button> -->
 				<button id="exit_gui">Exit</button>
 			</div>
 		</div>
@@ -436,6 +454,7 @@
 	});
 
 	$("#int_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -452,6 +471,7 @@
 	});
 	
 	$("#inv_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -468,6 +488,7 @@
 	});
 	
 	$("#amb_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -484,6 +505,7 @@
 	});
 	
 	$("#pol_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -500,6 +522,7 @@
 	});
 	
 	$("#mec_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -516,6 +539,7 @@
 	});
 	
 	$("#fire_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -532,6 +556,7 @@
 	});
 	
 	$("#taxi_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -548,6 +573,7 @@
 	});
 	
 	$("#phone_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -564,6 +590,7 @@
 	});
 	
 	$("#invoice_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -580,6 +607,7 @@
 	});
 	
 	$("#anim_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -596,6 +624,7 @@
 	});
 	
 	$("#esx_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -613,6 +642,7 @@
 	});
 	
 	$("#job_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -630,6 +660,7 @@
 	});
 	
 	$("#gen_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -647,6 +678,7 @@
 	});
 
 	$("#gen2_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -664,6 +696,7 @@
 	});
 
 	$("#gen3_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -681,6 +714,7 @@
 	});
 
 	$("#gen4_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -698,6 +732,7 @@
 	});
 
 	$("#gen5_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -715,6 +750,7 @@
 	});
 
 	$("#gen6_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -732,6 +768,7 @@
 	});
 
 	$("#gen7_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -749,6 +786,7 @@
 	});
 	
 	$("#veh_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -766,6 +804,7 @@
 	});
 
 	$("#door_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -783,6 +822,7 @@
 	});
 
 	$("#door2_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -800,6 +840,7 @@
 	});
 
 	$("#inddoor_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -817,6 +858,7 @@
 	});
 	
 	$("#window_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -834,6 +876,7 @@
 	});
 
 	$("#window2_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -851,6 +894,7 @@
 	});
 
 	$("#indwind_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -868,6 +912,7 @@
 	});
 	
 	$("#char_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -885,6 +930,7 @@
 	});
 	
 	$("#new_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -901,6 +947,7 @@
 	});
 	
 	$("#exit_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -916,6 +963,7 @@
 	});
 
 	$("#exit2_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -931,6 +979,7 @@
 	});
 
 	$("#exit3_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -946,6 +995,7 @@
 	});
 
 	$("#exit4_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -961,6 +1011,7 @@
 	});
 
 	$("#exit5_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -976,6 +1027,7 @@
 	});
 
 	$("#exit6_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -991,6 +1043,7 @@
 	});
 
 	$("#exit7_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1006,6 +1059,7 @@
 	});
 
 	$("#exit8_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1021,6 +1075,7 @@
 	});
 
 	$("#exit9_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1036,6 +1091,7 @@
 	});
 
 	$("#exit10_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1051,6 +1107,7 @@
 	});
 	
 	$("#exitveh_gui").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1173,6 +1230,7 @@
 	});
 	
 	$("#deleteCharExitBtn").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1201,6 +1259,7 @@
 	});
 	
 	$("#deleteCharBackBtn").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1230,6 +1289,7 @@
 	});
 	
 	$(".dchar").click(function(){
+		$('.background').css('display', 'none')
 		$('.general').css('display', 'none')
 		$('.esx').css('display', 'none')
 		$('.jobs').css('display', 'none')
@@ -1260,6 +1320,8 @@
 	
 	document.onkeyup = function (data) {
 		if (data.which == 27) { // Escape key
+		
+			$('.background').css('display', 'none')
 			$('.general').css('display', 'none')
 			$('.esx').css('display', 'none')
 			$('.jobs').css('display', 'none')
