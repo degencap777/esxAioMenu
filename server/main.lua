@@ -1,5 +1,14 @@
 characters = {}
 
+AddEventHandler('es:playerLoaded', function(source)
+	local myID = {
+		steamid = GetPlayerIdentifiers(source)[1],
+		playerid = source
+	}
+
+	TriggerClientEvent('esx_aiomenu:saveID', source, myID)
+end)
+
 function getIdentity(source, callback)
 	local identifier = GetPlayerIdentifiers(source)[1]
 	MySQL.Async.fetchAll("SELECT * FROM `users` WHERE `identifier` = @identifier",
@@ -281,6 +290,23 @@ AddEventHandler('menu:deleteCharacter', function(myIdentifiers)
 	end)
 end)
 
+RegisterServerEvent('esx_aiomenu:checkKeys')
+AddEventHandler('esx_aiomenu:checkKeys', function(PlayerID, plate, cb)
+	local keyCheck = nil
+	local cb = false
+	local newPlate = string.lower(plate)
+	keyCheck = exports['esx_locksystem']:getKey(PlayerID, newPlate, callback)
+	if keyCheck == true then
+		cb = true
+	elseif keyCheck == false then
+		cb = false
+	else
+		cb = 'Error'
+	end
+	
+	TriggerClientEvent("esx_aiomenu:keyReturn", -1, PlayerID, cb)
+end)
+
 RegisterServerEvent('InteractSound_SV:PlayOnOne')
 AddEventHandler('InteractSound_SV:PlayOnOne', function(clientNetId, soundFile, soundVolume)
     TriggerClientEvent('InteractSound_CL:PlayOnOne', clientNetId, soundFile, soundVolume)
@@ -305,4 +331,22 @@ RegisterServerEvent('InteractSound_SV:PlayOnVehicle')
 AddEventHandler('InteractSound_SV:PlayOnVehicle', function(maxDistance, soundFile, soundVolume)
     TriggerClientEvent('InteractSound_CL:PlayOnVehicle', -1, source, maxDistance, soundFile, soundVolume)
 end)
+
+if Config.versionChecker then
+    PerformHttpRequest("https://raw.githubusercontent.com/ArkSeyonet/esx_aiomenu/master/VERSION", function(err, rText, headers)
+		if rText then
+			if tonumber(rText) > tonumber(_VERSION) then
+				print("\n---------------------------------------------------")
+				print("ESX AIOMenu has an update available!")
+				print("---------------------------------------------------")
+				print("Current : " .. _VERSION)
+				print("Latest  : " .. rText .. "\n")
+			end
+		else
+			print("\n---------------------------------------------------")
+			print("Unable to find the version.")
+			print("---------------------------------------------------\n")
+		end
+	end, "GET", "", {what = 'this'})
+end
 
