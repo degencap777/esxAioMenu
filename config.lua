@@ -1,5 +1,5 @@
 Config = {
-
-disableStealingNpcDrivenCars = false
-
+	versionChecker = true
 }
+
+_VERSION 						= 2.1
