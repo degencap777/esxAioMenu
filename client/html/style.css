@@ -1,155 +1,164 @@
 @import url('https://fonts.googleapis.com/css?family=Syncopate|Unica+One');
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
 
+@font-face {
+	font-family: bankgothic;
+	src: url('fonts/bankgothic.ttf');
+}
+
+@font-face {
+	font-family: pcdown;
+	src: url('fonts/pdown.ttf');
+}
+
 body, html {
 	overflow: hidden;
 }
 
 .background {
-	opacity: 0.7;
-    height: 650px;
-    width: 280px;
-	left: 83.7%;
+	font-family: bankgothic;
+    height: 40px;
+    min-width: 400px;
 	position: absolute;
-	top: 38.9%;
-	border: 3px solid whitesmoke;
+	right: 40px;
+	bottom: 539px;
+	background-color: #5772e6;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	color: #ffffff;
 }
 
 .general {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .esx {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .jobs {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .vehicleControls {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .character {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .deleteCharacter {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .doorControls {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .individualDoorControls {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .windowControls {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .individualWindowControls {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 .interactions {
-	font-family: 'Roboto', sans-serif;
 	height: 500px;
 	background-image: url("bg.jpg");
 	color: white;
-	left: 70.4%;
-	width: 800px;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
 	position: absolute;
-	top: 50%;
 }
 
 /* main.css */
 button {
-	margin: 1px auto;
-	padding: 10px 24px;
 	cursor: pointer;
-	width: 30%;
+	height: 32px;
+	line-height: 28px;
+	width: 400px;
 	display: block;
-	text-transform: uppercase;
-	font-family: 'Unica One', cursive;
-	font-size: 12px;
-	border: 1px solid whitesmoke;
-	color: whitesmoke;
-    background-color: #002e4d;
-    border-radius: 25px;  
+	font-family: bankgothic;
+	font-size: 15px;
+	color: #3A3A3A;
+    background-color: #f1f1f1;
+	border:1px solid #bababa;
+}
+
+button:hover {
+	background-color:#d0d0d0;
+}
+
+button:active {
+	border:1px solid #bababa;
 }
 
 .delete {
@@ -173,10 +182,4 @@ button {
 	padding: 5px;
 	padding-right: 10px;
 	color: rgb(255, 0, 0);
-}
-
-
-/* change look of buttons when hovering over them */
-button:hover {
-	background-color: #005c99;
 }

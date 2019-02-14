@@ -2,7 +2,7 @@ resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
 
 description 'ESX AIOMenu'
 
-version '2.1'
+version '2.2'
 
 server_scripts({
 	'config.lua',
@@ -30,5 +30,6 @@ files({
 	'client/html/sounds/unlock.ogg',
 	'client/html/sounds/unlock2.ogg',
 	'client/html/img/bg.png',
-	'client/html/bg.png'
+	'client/html/fonts/pdown.ttf',
+	'client/html/fonts/bankgothic.ttf'
 })

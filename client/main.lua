@@ -35,10 +35,6 @@ Citizen.CreateThread(function()
 			SendNUIMessage({type = 'close'})
 		end
 		
-		if IsControlJustPressed(1, 121) then
-			doToggleVehicleLocks()
-		end
-		
 		if IsControlJustPressed(1, 178) then
 			doToggleEngine()
 		end
