@@ -246,7 +246,6 @@
                 $('.deleteChar').css('display', 'block')
 				$('.delete').show()
 				var deletebtn = document.getElementById("deletecharacter");
-				document.getElementById("deletecharacter").style.background = "DarkRed";
 				var deletet = document.createTextNode(event.data.char1);
 				deletebtn.className = "delete";
 				deletebtn.appendChild(deletet);
@@ -430,12 +429,12 @@
 	
     document.getElementById("deletecharacter").onmouseover = function() 
     {
-      this.style.backgroundColor = "Red";
+      this.style.backgroundColor = "#d0d0d0";
     }
 	
     document.getElementById("deletecharacter").onmouseout = function() 
     {
-      this.style.backgroundColor = "DarkRed";
+      this.style.backgroundColor = "#f1f1f1";
     }
 	
 	$(".show_id").click(function(){
