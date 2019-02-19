@@ -1,13 +1,13 @@
-local Vehicle 			= GetVehiclePedIsIn(ped, false)
-local inVehicle 		= IsPedSittingInAnyVehicle(ped)
-local lastCar 			= nil
-local myIdentity 		= {}
-local lockStatus 		= 0
+local Vehicle 					= GetVehiclePedIsIn(ped, false)
+local inVehicle 				= IsPedSittingInAnyVehicle(ped)
+local lastCar 					= nil
+local myIdentity 				= {}
+local lockStatus 				= 0
 local lockStatusOutside = 0
-local hasKey 			= false
-time 					= 0
-myIdentifiers 			= {}
-ESX						= nil
+local hasKey 						= false
+time 										= 0
+myIdentifiers 					= {}
+ESX											= nil
 
 Citizen.CreateThread(function()
 
@@ -19,7 +19,7 @@ Citizen.CreateThread(function()
 	while true do
 		Wait(0)
 
-		if IsControlJustPressed(1, 10) then
+		if IsControlJustPressed(1, 10) and GetLastInputMethod( 0 ) then
 			SetNuiFocus(true, true)
 			SendNUIMessage({type = 'openGeneral'})
 			local ped = GetPlayerPed(-1)
