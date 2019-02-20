@@ -69,18 +69,6 @@ RegisterNUICallback('NUIShowInteractions', function()
   SendNUIMessage({type = 'openInteractions'})
 end)
 
-RegisterNUICallback('toggleid', function(data)
-	SetNuiFocus(false, false)
-	SendNUIMessage({type = 'closeAll'})
-	exports['esx_identitycard']:doToggleIDCard()
-end)
-
-RegisterNUICallback('showid', function(data)
-	SetNuiFocus(false, false)
-	SendNUIMessage({type = 'closeAll'})
-	exports['esx_identitycard']:doShowIDCard()
-end)
-
 RegisterNUICallback('togglephone', function(data)
 	TriggerServerEvent('esx_aiomenu:phone', myIdentifiers, data)
 end)
@@ -596,20 +584,6 @@ AddEventHandler("esx_aiomenu:setIdentifier", function(data)
 	myIdentifiers = data
 end)
 
-RegisterNUICallback('NUIdeleteCharacter', function(data)
-	TriggerServerEvent('esx_aiomenu:setCharacter', myIdentifiers)
-	Wait(1000)
-	SetNuiFocus(true, true)
-	local bt  = myIdentity.character1 --- Character 1 ---
-  
-	SendNUIMessage({
-		type = "deleteCharacter",
-		char1    = bt,
-		backBtn  = "Back",
-		exitBtn  = "Exit"
-	}) 
-end)
-
 RegisterNUICallback('NUInewCharacter', function(data)
 	if myIdentity.character1 == "No Character" then
 		exports['esx_identity']:openRegistry()
@@ -658,4 +632,70 @@ end)
 RegisterNetEvent('esx_aiomenu:noIdentity')
 AddEventHandler('noIdentity', function()
 	ESX.ShowNotification('You do not have an identity.')
+end)
+
+RegisterNUICallback('NUItoggleID', function(data)
+	TriggerServerEvent('esx_aiomenu:setCharacter', myIdentifiers)
+	Wait(1000)
+	SetNuiFocus(true, true)
+	local charName 		= myIdentity.characterName
+	local charDOB  		= myIdentity.characterDOB
+	local charSex		= myIdentity.characterSex
+	local charHeight 	= myIdentity.characterHeight
+  
+	SendNUIMessage({
+		type = "toggleIDCard",
+		characterName 	= 'Name: ' .. charName,
+		characterDOB	= 'DOB: ' .. charDOB,
+		characterSex	= 'Sex: ' .. charSex,
+		characterHeight = 'Height: ' .. charHeight .. 'cm'	
+	}) 
+end)
+
+RegisterNUICallback('NUIshowID', function(data)
+	showID(data)
+end)
+
+function showID(data)
+	local player, distance = ESX.Game.GetClosestPlayer()
+
+	if distance ~= -1 and distance <= 3.0 then
+		TriggerServerEvent('esx_aiomenu:showID', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
+	else
+		ESX.ShowNotification('There is no one nearby.')
+	end
+end
+
+RegisterNetEvent('esx_aiomenu:showID')
+AddEventHandler('esx_aiomenu:showID', function( data, type )
+	local charName 		= data.characterName
+	local charDOB  		= data.characterDOB
+	if data.characterSex == "M" then
+		local charSex = "Male"
+	else
+		local charSex = "Female"
+	end
+	local charHeight 	= data.characterHeight
+	SetNuiFocus(true, true)
+	SendNUIMessage({
+		type   = "toggleIDCard",
+		characterName 	= 'Name: ' .. charName,
+		characterDOB	= 'DOB: ' .. charDOB,
+		characterSex	= 'Sex: ' .. charSex,
+		characterHeight = 'Height: ' .. charHeight .. 'cm'	
+	})
+end)
+
+RegisterNUICallback('NUIdeleteCharacter', function(data)
+	TriggerServerEvent('esx_aiomenu:setCharacter', myIdentifiers)
+	Wait(1000)
+	SetNuiFocus(true, true)
+	local charName = myIdentity.characterName
+  
+	SendNUIMessage({
+		type = "deleteCharacter",
+		characterName = charName,
+		backBtn  = "Back",
+		exitBtn  = "Exit"
+	}) 
 end)

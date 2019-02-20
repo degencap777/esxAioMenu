@@ -17,6 +17,7 @@
 		.windowControls {display: none;}
 		.individualWindowControls {display: none;}
 		.interactions {display: none;}
+		.idcard {display: none;}
 		</style>
 	
 	<script>
@@ -246,7 +247,7 @@
                 $('.deleteChar').css('display', 'block')
 				$('.delete').show()
 				var deletebtn = document.getElementById("deletecharacter");
-				var deletet = document.createTextNode(event.data.char1);
+				var deletet = document.createTextNode(event.data.characterName);
 				deletebtn.className = "delete";
 				deletebtn.appendChild(deletet);
 				document.body.appendChild(deletebtn);
@@ -264,6 +265,33 @@
 				document.body.appendChild(deletebtn5);
                 
                 
+			} else if (event.data.type == "toggleIDCard"){
+				$('.idcard').css('display', 'block')
+				$('.id').show()
+				var idbtn = document.getElementById("characterName");
+				var idt = document.createTextNode(event.data.characterName);
+				idbtn.className = "id";
+				idbtn.appendChild(idt);
+				document.body.appendChild(idbtn);
+				
+				var idbtn2 = document.getElementById("characterDOB");
+				var idt2 = document.createTextNode(event.data.characterDOB);
+				idbtn2.className = "id";
+				idbtn2.appendChild(idt2);
+				document.body.appendChild(idbtn2);
+				
+				var idbtn3 = document.getElementById("characterSex");
+				var idt3 = document.createTextNode(event.data.characterSex);
+				idbtn3.className = "id";
+				idbtn3.appendChild(idt3);
+				document.body.appendChild(idbtn3);
+				
+				var idbtn4 = document.getElementById("characterHeight");
+				var idt4 = document.createTextNode(event.data.characterHeight);
+				idbtn4.className = "id";
+				idbtn4.appendChild(idt4);
+				document.body.appendChild(idbtn4);
+                	
 			}						
 		});
 	});
@@ -291,6 +319,7 @@
 		<div class="interactions">
 			<div class="main">
 				<button class="phone_num">Give Phone Number</button>
+				<button class="my_id">My ID</button>
 				<button class="show_id">Show ID</button>
 				<button id="gen_gui">Back</button>
 				<button id="exit2_gui">Exit</button>
@@ -419,6 +448,15 @@
             </div>
         </div>
         
+        <div class="idcard">
+            <div class="main">
+				<button id="characterName" class="charName"></button>
+				<button id="characterDOB" class="charDOB"></button>
+				<button id="characterSex" class="charSex"></button>
+				<button id="characterHeight" class="charHeight"></button>
+            </div>
+        </div>
+		
     </body>
     
 
@@ -437,8 +475,77 @@
       this.style.backgroundColor = "#f1f1f1";
     }
 	
+    document.getElementById("characterName").onmouseover = function() 
+    {
+      this.style.backgroundColor = "#d0d0d0";
+    }
+	
+    document.getElementById("characterName").onmouseout = function() 
+    {
+      this.style.backgroundColor = "#f1f1f1";
+    }
+	
+    document.getElementById("characterDOB").onmouseover = function() 
+    {
+      this.style.backgroundColor = "#d0d0d0";
+    }
+	
+    document.getElementById("characterDOB").onmouseout = function() 
+    {
+      this.style.backgroundColor = "#f1f1f1";
+    }
+	
+    document.getElementById("characterSex").onmouseover = function() 
+    {
+      this.style.backgroundColor = "#d0d0d0";
+    }
+	
+    document.getElementById("characterSex").onmouseout = function() 
+    {
+      this.style.backgroundColor = "#f1f1f1";
+    }
+	
+    document.getElementById("characterHeight").onmouseover = function() 
+    {
+      this.style.backgroundColor = "#d0d0d0";
+    }
+	
+    document.getElementById("characterHeight").onmouseout = function() 
+    {
+      this.style.backgroundColor = "#f1f1f1";
+    }
+	
+	$(".my_id").click(function(){
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.idcard').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUItoggleID', JSON.stringify({}));
+	});
+	
 	$(".show_id").click(function(){
-		$.post('http://esx_aiomenu/toggleid', JSON.stringify({}));
+		$('.general').css('display', 'none')
+		$('.esx').css('display', 'none')
+		$('.idcard').css('display', 'none')
+		$('.jobs').css('display', 'none')
+		$('.character').css('display', 'none')
+		$('.vehicleControls').css('display', 'none')
+		$('.doorControls').css('display', 'none')
+		$('.individualDoorControls').css('display', 'none')
+		$('.windowControls').css('display', 'none')
+		$('.individualWindowControls').css('display', 'none')
+		$('.deleteCharacter').css('display', 'none')
+		$('.interactions').css('display', 'none')
+		$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
+		$.post('http://esx_aiomenu/NUIshowID', JSON.stringify({}));
 		
 	});
 	
@@ -1322,6 +1429,7 @@
 		
 			$('.background').css('display', 'none')
 			$('.general').css('display', 'none')
+			$('.idcard').css('display', 'none')
 			$('.esx').css('display', 'none')
 			$('.jobs').css('display', 'none')
 			$('.character').css('display', 'none')
@@ -1344,8 +1452,26 @@
 			if (deletebtn5.hasChildNodes()) {
 				deletebtn5.removeChild(deletebtn5.childNodes[0]);
 			}
+			$('.IDCard').css('display', 'none')
+			var idbtn = document.getElementById("characterName");
+			if (idbtn.hasChildNodes()) {
+				idbtn.removeChild(idbtn.childNodes[0]);
+			}
+			var idbtn2 = document.getElementById("characterDOB");
+			if (idbtn2.hasChildNodes()) {
+				idbtn2.removeChild(idbtn2.childNodes[0]);
+			}
+			var idbtn3 = document.getElementById("characterSex");
+			if (idbtn3.hasChildNodes()) {
+				idbtn3.removeChild(idbtn3.childNodes[0]);
+			}
+			var idbtn4 = document.getElementById("characterHeight");
+			if (idbtn4.hasChildNodes()) {
+				idbtn4.removeChild(idbtn4.childNodes[0]);
+			}
 			$.post('http://esx_aiomenu/NUIFocusOff', JSON.stringify({}));
 			$('.delete').hide()
+			$('.id').hide()
 		}
 	};
 

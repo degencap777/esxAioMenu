@@ -210,31 +210,42 @@ AddEventHandler('es:playerLoaded', function(source)
 	getCharacters(source, function(data)
 		if data ~= nil then
 			if data.firstname ~= '' then
-				local char1 = tostring(data.firstname) .. " " .. tostring(data.lastname)
-		
+				local charName 		= tostring(data.firstname) .. " " .. tostring(data.lastname)
+				local charDOB 		= tostring(data.dateofbirth)
+				local charSex		= tostring(data.sex)
+				local charHeight	= tostring(data.height)
+
 				identification = {
 					steamidentifier = steamid,
 					playerid        = source
 				}
 		
-				character = char1
+		      	characterInfo = {
+					characterName       = charName,
+					characterDOB		= charDOB,
+					characterSex		= charSex,
+					characterHeight		= charHeight
+				}
 		  
-				TriggerClientEvent('esx_aiomenu:setChar', source, character)	
+				TriggerClientEvent('esx_aiomenu:setChar', source, characterInfo)	
 				TriggerClientEvent('esx_aiomenu:setIdentifier', source, identification)
 		
 			else
-				local char1 = "No Character"
+				local charName = "No Character"
 		
 				identification = {
 					steamidentifier = steamid,
 					playerid        = source
 				}
 		
-				character = {
-					character1         = char1
+		      	characterInfo = {
+					characterName       = charName,
+					characterDOB		= "",
+					characterSex		= "",
+					characterHeight		= ""
 				}
 		  
-				TriggerClientEvent('esx_aiomenu:setChar', source, character)	
+				TriggerClientEvent('esx_aiomenu:setChar', source, characterInfo)	
 				TriggerClientEvent('esx_aiomenu:setIdentifier', source, identification)		
 		
 			end
@@ -247,17 +258,26 @@ AddEventHandler('esx_aiomenu:setCharacter', function(myIdentifiers)
 	getChars(myIdentifiers.steamidentifier, function(data)	
 		if data ~= nil then
 			if data.firstname ~= '' then
-				local char1 = tostring(data.firstname) .. " " .. tostring(data.lastname)
-		      	characters = {
-					character1         = char1,
+				local charName 		= tostring(data.firstname) .. " " .. tostring(data.lastname)
+				local charDOB 		= tostring(data.dateofbirth)
+				local charSex		= tostring(data.sex)
+				local charHeight	= tostring(data.height)
+		      	characterInfo = {
+					characterName       = charName,
+					characterDOB		= charDOB,
+					characterSex		= charSex,
+					characterHeight		= charHeight
 				}
 			
-				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characters)
+				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characterInfo)
 			else	
-				characters = {
-					character1 = 'No Character',
+		      	characterInfo = {
+					characterName       = "",
+					characterDOB		= "",
+					characterSex		= "",
+					characterHeight		= ""
 				}
-				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characters)  
+				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characterInfo)  
 			end
 		end
 	end)
@@ -286,6 +306,25 @@ AddEventHandler('esx_aiomenu:deleteCharacter', function(myIdentifiers)
 			end)
 		else
 			TriggerClientEvent('esx_aiomenu:noIdentity', myIdentifiers.playerid, {})
+		end
+	end)
+end)
+
+RegisterServerEvent('esx_aiomenu:showID')
+AddEventHandler('esx_aiomenu:showID', function(ID, targetID, type)
+	local identifier = ESX.GetPlayerFromId(ID).identifier
+	local _source 	 = ESX.GetPlayerFromId(targetID).source
+
+	MySQL.Async.fetchAll('SELECT * FROM `users` WHERE identifier = @identifier', {['@identifier'] = identifier},
+	function(result)
+		if (result[1] ~= nil) then
+		    local characterInfo = {
+				characterName       = tostring(result[1].firstname) .. ' ' .. tostring(result[1].lastname),
+				characterDOB		= tostring(result[1].dateofbirth),
+				characterSex		= tostring(result[1].sex),
+				characterHeight		= tostring(result[1].height)
+			}
+			TriggerClientEvent('esx_aiomenu:showID', _source, characterInfo, type)
 		end
 	end)
 end)

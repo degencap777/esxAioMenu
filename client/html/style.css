@@ -29,6 +29,20 @@ body, html {
 	color: #ffffff;
 }
 
+.background2 {
+	font-family: bankgothic;
+    height: 40px;
+    min-width: 400px;
+	position: absolute;
+	right: 40px;
+	bottom: 539px;
+	background-color: #5772e6;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	color: #ffffff;
+}
+
 .general {
 	height: 500px;
 	background-image: url("bg.jpg");
@@ -137,6 +151,34 @@ body, html {
 	bottom: 40px;
 	width: 400px;
 	position: absolute;
+}
+
+.idcard {
+	height: 500px;
+	background-image: url("bg.jpg");
+	color: white;
+	right: 40px;
+	bottom: 40px;
+	width: 400px;
+	position: absolute;
+}
+
+.id {
+	font-family: bankgothic;
+	font-size: 15px;
+	margin: 0px 0px;
+	padding: 10px 24px;
+	background-color: #f1f1f1;
+	border:1px solid #bababa;
+	color: #3A3A3A;
+	height: 32px;
+	line-height: 12px;
+	display: block;
+	width: 400px;
+	position: relative;
+	top: 49.3%;
+	left: 77.30%;
+
 }
 
 /* main.css */
