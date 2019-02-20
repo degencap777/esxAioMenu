@@ -173,21 +173,21 @@ function deleteIdentity(identifier, data, callback)
 	end)
 end
 
-RegisterServerEvent('menu:id')
-AddEventHandler('menu:id', function(myIdentifiers)
+RegisterServerEvent('esx_aiomenu:id')
+AddEventHandler('esx_aiomenu:id', function(myIdentifiers)
 	getID(myIdentifiers.steamidentifier, function(data)
 		if data ~= nil then
-			TriggerClientEvent("sendProximityMessageID", -1, myIdentifiers.playerid, data.firstname .. " " .. data.lastname)
+			TriggerClientEvent("esx_aiomenu:sendProximityMessageID", -1, myIdentifiers.playerid, data.firstname .. " " .. data.lastname)
 		end
 	end)
 end)
 
-RegisterNetEvent('menu:phone')
-AddEventHandler('menu:phone', function(myIdentifiers)
+RegisterNetEvent('esx_aiomenu:phone')
+AddEventHandler('esx_aiomenu:phone', function(myIdentifiers)
 	getID(myIdentifiers.steamidentifier, function(data)
 		if data ~= nil then
 			local name = data.firstname .. " " .. data.lastname
-			TriggerClientEvent("sendProximityMessagePhone", -1, myIdentifiers.playerid, name, data.phonenumber)
+			TriggerClientEvent("esx_aiomenu:sendProximityMessagePhone", -1, myIdentifiers.playerid, name, data.phonenumber)
 		end
 	end)
 end)
@@ -219,8 +219,8 @@ AddEventHandler('es:playerLoaded', function(source)
 		
 				character = char1
 		  
-				TriggerClientEvent('menu:setCharacters', source, character)	
-				TriggerClientEvent('menu:setIdentifier', source, identification)
+				TriggerClientEvent('esx_aiomenu:setChar', source, character)	
+				TriggerClientEvent('esx_aiomenu:setIdentifier', source, identification)
 		
 			else
 				local char1 = "No Character"
@@ -234,16 +234,16 @@ AddEventHandler('es:playerLoaded', function(source)
 					character1         = char1
 				}
 		  
-				TriggerClientEvent('menu:setCharacters', source, character)	
-				TriggerClientEvent('menu:setIdentifier', source, identification)		
+				TriggerClientEvent('esx_aiomenu:setChar', source, character)	
+				TriggerClientEvent('esx_aiomenu:setIdentifier', source, identification)		
 		
 			end
 		end
 	end)
 end)
 
-RegisterServerEvent('menu:setChars')
-AddEventHandler('menu:setChars', function(myIdentifiers)
+RegisterServerEvent('esx_aiomenu:setCharacter')
+AddEventHandler('esx_aiomenu:setCharacter', function(myIdentifiers)
 	getChars(myIdentifiers.steamidentifier, function(data)	
 		if data ~= nil then
 			if data.firstname ~= '' then
@@ -252,20 +252,20 @@ AddEventHandler('menu:setChars', function(myIdentifiers)
 					character1         = char1,
 				}
 			
-				TriggerClientEvent('menu:setCharacters', myIdentifiers.playerid, characters)
+				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characters)
 			else	
 				characters = {
 					character1 = 'No Character',
 				}
-				TriggerClientEvent('menu:setCharacters', myIdentifiers.playerid, characters)  
+				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characters)  
 			end
 		end
 	end)
 end)
 
 
-RegisterServerEvent('menu:deleteCharacter')
-AddEventHandler('menu:deleteCharacter', function(myIdentifiers)
+RegisterServerEvent('esx_aiomenu:deleteCharacter')
+AddEventHandler('esx_aiomenu:deleteCharacter', function(myIdentifiers)
 	getChars(myIdentifiers.steamidentifier, function(data)
 		local data = {
 			identifier   = data.identifier,
@@ -279,57 +279,15 @@ AddEventHandler('menu:deleteCharacter', function(myIdentifiers)
 		if data.firstname ~= '' then
 			deleteIdentity(myIdentifiers.steamidentifier, data, function(callback)
 				if callback == true then
-					TriggerClientEvent('successfulDeleteIdentity', myIdentifiers.playerid, data)
+					TriggerClientEvent('esx_aiomenu:successfulDeleteIdentity', myIdentifiers.playerid, data)
 				else
-					TriggerClientEvent('failedDeleteIdentity', myIdentifiers.playerid, data)
+					TriggerClientEvent('esx_aiomenu:failedDeleteIdentity', myIdentifiers.playerid, data)
 				end
 			end)
 		else
-			TriggerClientEvent('noIdentity', myIdentifiers.playerid, {})
+			TriggerClientEvent('esx_aiomenu:noIdentity', myIdentifiers.playerid, {})
 		end
 	end)
-end)
-
-RegisterServerEvent('esx_aiomenu:checkKeys')
-AddEventHandler('esx_aiomenu:checkKeys', function(PlayerID, plate, cb)
-	local keyCheck = nil
-	local cb = false
-	local newPlate = string.lower(plate)
-	keyCheck = exports['esx_locksystem']:getKey(PlayerID, newPlate, callback)
-	if keyCheck == true then
-		cb = true
-	elseif keyCheck == false then
-		cb = false
-	else
-		cb = 'Error'
-	end
-	
-	TriggerClientEvent("esx_aiomenu:keyReturn", -1, PlayerID, cb)
-end)
-
-RegisterServerEvent('InteractSound_SV:PlayOnOne')
-AddEventHandler('InteractSound_SV:PlayOnOne', function(clientNetId, soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnOne', clientNetId, soundFile, soundVolume)
-end)
-
-RegisterServerEvent('InteractSound_SV:PlayOnSource')
-AddEventHandler('InteractSound_SV:PlayOnSource', function(soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnOne', source, soundFile, soundVolume)
-end)
-
-RegisterServerEvent('InteractSound_SV:PlayOnAll')
-AddEventHandler('InteractSound_SV:PlayOnAll', function(soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnAll', -1, soundFile, soundVolume)
-end)
-
-RegisterServerEvent('InteractSound_SV:PlayWithinDistance')
-AddEventHandler('InteractSound_SV:PlayWithinDistance', function(maxDistance, soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayWithinDistance', -1, source, maxDistance, soundFile, soundVolume)
-end)
-
-RegisterServerEvent('InteractSound_SV:PlayOnVehicle')
-AddEventHandler('InteractSound_SV:PlayOnVehicle', function(maxDistance, soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnVehicle', -1, source, maxDistance, soundFile, soundVolume)
 end)
 
 if Config.versionChecker then

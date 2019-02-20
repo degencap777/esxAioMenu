@@ -3,11 +3,11 @@ local inVehicle 				= IsPedSittingInAnyVehicle(ped)
 local lastCar 					= nil
 local myIdentity 				= {}
 local lockStatus 				= 0
-local lockStatusOutside = 0
-local hasKey 						= false
-time 										= 0
+local lockStatusOutside 		= 0
+local hasKey 					= false
+time 							= 0
 myIdentifiers 					= {}
-ESX											= nil
+ESX								= nil
 
 Citizen.CreateThread(function()
 
@@ -49,8 +49,8 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent('esx_identity:saveID')
-AddEventHandler('esx_identity:saveID', function(data)
+RegisterNetEvent('esx_aiomenu:saveID')
+AddEventHandler('esx_aiomenu:saveID', function(data)
 	myIdentifiers = data
 end)
 
@@ -70,11 +70,19 @@ RegisterNUICallback('NUIShowInteractions', function()
 end)
 
 RegisterNUICallback('toggleid', function(data)
-	TriggerServerEvent('menu:id', myIdentifiers, data)
+	SetNuiFocus(false, false)
+	SendNUIMessage({type = 'closeAll'})
+	exports['esx_identitycard']:doToggleIDCard()
+end)
+
+RegisterNUICallback('showid', function(data)
+	SetNuiFocus(false, false)
+	SendNUIMessage({type = 'closeAll'})
+	exports['esx_identitycard']:doShowIDCard()
 end)
 
 RegisterNUICallback('togglephone', function(data)
-	TriggerServerEvent('menu:phone', myIdentifiers, data)
+	TriggerServerEvent('esx_aiomenu:phone', myIdentifiers, data)
 end)
 
 RegisterNUICallback('toggleEngineOnOff', function()
@@ -105,27 +113,6 @@ end)
 function doToggleVehicleLocks()
 	exports['esx_locksystem']:doLockSystemToggleLocks()
 end
-
-function checkForKey(myPlayerID, vehPlate, cb)
-	local PlayerID 	= myPlayerID
-	local plate = vehPlate
-	TriggerServerEvent("esx_aiomenu:checkKeys", PlayerID, plate, cb)
-end
-
-RegisterNetEvent('esx_aiomenu:keyReturn')
-AddEventHandler('esx_aiomenu:keyReturn', function(PlayerID, cb)
-	if cb ~= nil then
-		if cb == true then
-			hasKey = true
-		elseif cb == false then
-			hasKey = false
-		else
-			hasKey = false
-		end
-	else
-		ESX.ShowNotification('cb is nil.')
-	end
-end)
 
 --================================================================================================
 --==                                  ESX Actions GUI                                           ==
@@ -599,18 +586,18 @@ RegisterNUICallback('NUIShowCharacterControls', function()
 	SendNUIMessage({type = 'openCharacter'})
 end)
 
-RegisterNetEvent("menu:setCharacters")
-AddEventHandler("menu:setCharacters", function(identity)
+RegisterNetEvent("esx_aiomenu:setChar")
+AddEventHandler("esx_aiomenu:setChar", function(identity)
 	myIdentity = identity
 end)
 
-RegisterNetEvent("menu:setIdentifier")
-AddEventHandler("menu:setIdentifier", function(data)
+RegisterNetEvent("esx_aiomenu:setIdentifier")
+AddEventHandler("esx_aiomenu:setIdentifier", function(data)
 	myIdentifiers = data
 end)
 
 RegisterNUICallback('NUIdeleteCharacter', function(data)
-	TriggerServerEvent('menu:setChars', myIdentifiers)
+	TriggerServerEvent('esx_aiomenu:setCharacter', myIdentifiers)
 	Wait(1000)
 	SetNuiFocus(true, true)
 	local bt  = myIdentity.character1 --- Character 1 ---
@@ -632,12 +619,12 @@ RegisterNUICallback('NUInewCharacter', function(data)
 end)
 
 RegisterNUICallback('NUIDelChar', function(data)
-	TriggerServerEvent('menu:deleteCharacter', myIdentifiers, data)
+	TriggerServerEvent('esx_aiomenu:deleteCharacter', myIdentifiers, data)
 	cb(data)
 end)
 
-RegisterNetEvent('sendProximityMessageID')
-AddEventHandler('sendProximityMessageID', function(id, message)
+RegisterNetEvent('esx_aiomenu:sendProximityMessageID')
+AddEventHandler('esx_aiomenu:sendProximityMessageID', function(id, message)
 	local myId = PlayerId()
 	local pid = GetPlayerFromServerId(id)
 	if pid == myId then
@@ -647,8 +634,8 @@ AddEventHandler('sendProximityMessageID', function(id, message)
 	end
 end)
 
-RegisterNetEvent('sendProximityMessagePhone')
-AddEventHandler('sendProximityMessagePhone', function(id, name, message)
+RegisterNetEvent('esx_aiomenu:sendProximityMessagePhone')
+AddEventHandler('esx_aiomenu:sendProximityMessagePhone', function(id, name, message)
 	local myId = PlayerId()
 	local pid = GetPlayerFromServerId(id)
 	if pid == myId then
@@ -658,92 +645,17 @@ AddEventHandler('sendProximityMessagePhone', function(id, name, message)
 	end
 end)
 
-RegisterNetEvent('successfulDeleteIdentity')
-AddEventHandler('successfulDeleteIdentity', function(data)
+RegisterNetEvent('esx_aiomenu:successfulDeleteIdentity')
+AddEventHandler('esx_aiomenu:successfulDeleteIdentity', function(data)
 	ESX.ShowNotification('Successfully deleted ' .. data.firstname .. ' ' .. data.lastname .. '.')
 end)
 
-RegisterNetEvent('failedDeleteIdentity')
-AddEventHandler('failedDeleteIdentity', function(data)
+RegisterNetEvent('esx_aiomenu:failedDeleteIdentity')
+AddEventHandler('esx_aiomenu:failedDeleteIdentity', function(data)
 	ESX.ShowNotification('Failed to delete ' .. data.firstname .. ' ' .. data.lastname .. '. Please contact a server admin.')
 end)
 
-RegisterNetEvent('noIdentity')
+RegisterNetEvent('esx_aiomenu:noIdentity')
 AddEventHandler('noIdentity', function()
 	ESX.ShowNotification('You do not have an identity.')
-end)
-
-RegisterNetEvent('esx_aiomenu:SuccessfulCheckPlates')
-AddEventHandler('esx_aiomenu:SuccessfulCheckPlates', function(myIdentifiers, listPlates)
-	ESX.ShowNotification('Return Successful: ' .. listPlates.plates1)
-end)
-
-RegisterNetEvent('esx_aiomenu:FailedCheckPlates')
-AddEventHandler('esx_aiomenu:FailedCheckPlates', function(myIdentifiers, data)
-	ESX.ShowNotification('Return failed.')
-end)
-
-RegisterNetEvent('InteractSound_CL:PlayOnOne')
-AddEventHandler('InteractSound_CL:PlayOnOne', function(soundFile, soundVolume)
-    SendNUIMessage({
-        transactionType     = 'playSound',
-        transactionFile     = soundFile,
-        transactionVolume   = soundVolume
-    })
-end)
-
-RegisterNetEvent('InteractSound_CL:PlayOnAll')
-AddEventHandler('InteractSound_CL:PlayOnAll', function(soundFile, soundVolume)
-    SendNUIMessage({
-        transactionType     = 'playSound',
-        transactionFile     = soundFile,
-        transactionVolume   = soundVolume
-    })
-end)
-
-RegisterNetEvent('InteractSound_CL:PlayWithinDistance')
-AddEventHandler('InteractSound_CL:PlayWithinDistance', function(playerNetId, maxDistance, soundFile, soundVolume)
-    local lCoords = GetEntityCoords(GetPlayerPed(-1))
-    local eCoords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(playerNetId)))
-    local distIs  = Vdist(lCoords.x, lCoords.y, lCoords.z, eCoords.x, eCoords.y, eCoords.z)
-    if(distIs <= maxDistance) then
-        SendNUIMessage({
-            transactionType     = 'playSound',
-            transactionFile     = soundFile,
-            transactionVolume   = soundVolume
-        })
-    end
-end)
-
-RegisterNetEvent('InteractSound_CL:PlayOnVehicle')
-AddEventHandler('InteractSound_CL:PlayOnVehicle', function(playerNetId, maxDistance, soundFile, soundVolume)
-    local lCoords = GetEntityCoords(lastCar, false)
-    local eCoords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(playerNetId)))
-    local distIs  = Vdist(lCoords.x, lCoords.y, lCoords.z, eCoords.x, eCoords.y, eCoords.z)
-	local farSound
-    if(distIs <= maxDistance) then
-        SendNUIMessage({
-            transactionType     = 'playSound',
-            transactionFile     = soundFile,
-            transactionVolume   = soundVolume
-        })
-	elseif distIs > maxDistance and distIs < 10.0 then
-        SendNUIMessage({
-            transactionType     = 'playSound',
-            transactionFile     = soundFile,
-            transactionVolume   = 0.5
-        })
-	elseif distIs > 10.0 and distIs < 15.0 then
-        SendNUIMessage({
-            transactionType     = 'playSound',
-            transactionFile     = soundFile,
-            transactionVolume   = 0.25
-        })
-	elseif distIs > 15.0 and distIs < 20.0 then
-        SendNUIMessage({
-            transactionType     = 'playSound',
-            transactionFile     = soundFile,
-            transactionVolume   = 0.10
-        })
-    end
 end)
