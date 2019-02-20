@@ -2,4 +2,4 @@ Config = {
 	versionChecker = true
 }
 
-_VERSION 						= 2.6
+_VERSION 						= 3.0

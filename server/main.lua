@@ -1,4 +1,15 @@
 characters = {}
+ESX	= nil
+
+AddEventHandler('esx:getSharedObject', function(cb)
+	cb(ESX)
+end)
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+function getSharedObject()
+	return ESX
+end
 
 AddEventHandler('es:playerLoaded', function(source)
 	local myID = {
@@ -272,7 +283,7 @@ AddEventHandler('esx_aiomenu:setCharacter', function(myIdentifiers)
 				TriggerClientEvent('esx_aiomenu:setChar', myIdentifiers.playerid, characterInfo)
 			else	
 		      	characterInfo = {
-					characterName       = "",
+					characterName       = "No Character",
 					characterDOB		= "",
 					characterSex		= "",
 					characterHeight		= ""
@@ -311,20 +322,33 @@ AddEventHandler('esx_aiomenu:deleteCharacter', function(myIdentifiers)
 end)
 
 RegisterServerEvent('esx_aiomenu:showID')
-AddEventHandler('esx_aiomenu:showID', function(ID, targetID, type)
+AddEventHandler('esx_aiomenu:showID', function(ID, targetID)
+
 	local identifier = ESX.GetPlayerFromId(ID).identifier
 	local _source 	 = ESX.GetPlayerFromId(targetID).source
 
-	MySQL.Async.fetchAll('SELECT * FROM `users` WHERE identifier = @identifier', {['@identifier'] = identifier},
-	function(result)
-		if (result[1] ~= nil) then
-		    local characterInfo = {
-				characterName       = tostring(result[1].firstname) .. ' ' .. tostring(result[1].lastname),
-				characterDOB		= tostring(result[1].dateofbirth),
-				characterSex		= tostring(result[1].sex),
-				characterHeight		= tostring(result[1].height)
-			}
-			TriggerClientEvent('esx_aiomenu:showID', _source, characterInfo, type)
+	MySQL.Async.fetchAll("SELECT * FROM `users` WHERE `identifier` = @identifier",
+	{
+		['@identifier'] = identifier
+	}, function(result)
+		if result[1] ~= nil then
+			if result[1].firstname ~= '' then
+				local data 			= result[1]
+				local charName 		= tostring(data.firstname) .. " " .. tostring(data.lastname)
+				local charDOB 		= tostring(data.dateofbirth)
+				local charSex		= tostring(data.sex)
+				local charHeight	= tostring(data.height)
+				
+		      	info = {
+					characterName       = charName,
+					characterDOB		= charDOB,
+					characterSex		= charSex,
+					characterHeight		= charHeight
+				}
+				TriggerClientEvent('esx_aiomenu:showID', _source, info)
+			else
+				TriggerClientEvent("esx_aiomenu:sendProximityMessageID", -1, ID, "You sent an invalid ID.")
+			end
 		end
 	end)
 end)

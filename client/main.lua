@@ -9,6 +9,8 @@ time 							= 0
 myIdentifiers 					= {}
 ESX								= nil
 
+
+
 Citizen.CreateThread(function()
 
 	while ESX == nil do
@@ -585,7 +587,7 @@ AddEventHandler("esx_aiomenu:setIdentifier", function(data)
 end)
 
 RegisterNUICallback('NUInewCharacter', function(data)
-	if myIdentity.character1 == "No Character" then
+	if myIdentity.characterName == "No Character" then
 		exports['esx_identity']:openRegistry()
 	else
 		ESX.ShowNotification('You can only have one character.')
@@ -667,15 +669,13 @@ function showID(data)
 end
 
 RegisterNetEvent('esx_aiomenu:showID')
-AddEventHandler('esx_aiomenu:showID', function( data, type )
+AddEventHandler('esx_aiomenu:showID', function(data)
 	local charName 		= data.characterName
 	local charDOB  		= data.characterDOB
-	if data.characterSex == "M" then
-		local charSex = "Male"
-	else
-		local charSex = "Female"
-	end
+	local charSex 		= data.characterSex
 	local charHeight 	= data.characterHeight
+	SendNUIMessage({type = 'closeAll'})
+	Wait(500)
 	SetNuiFocus(true, true)
 	SendNUIMessage({
 		type   = "toggleIDCard",
