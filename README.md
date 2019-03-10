@@ -1,4 +1,5 @@
 # esx_aiomenu
+https://discord.gg/KpumbUk
 
 ## Requirements
 * [es_extended](https://github.com/ESX-Org/es_extended)
